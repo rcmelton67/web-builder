@@ -1,0 +1,40 @@
+When creating a new page in this project:
+
+Scaffold a new folder inside /pages/ using the page slug.
+
+Create index.html using /docs/templates/NEW_PAGE_INDEX_TEMPLATE.html.
+
+Create spec.md using /docs/templates/NEW_PAGE_TEMPLATE.md.
+
+Validate slug against GLOBAL_SITE_RULES.md.
+
+Validate keyword cluster against GLOBAL_SEO_STRATEGY.md.
+
+Do not allow page creation without a spec.md file.
+
+Ensure required internal linking rules are satisfied.
+
+Output a checklist including:
+
+slug
+
+H1
+
+meta title
+
+meta description
+
+internal links
+
+image files required
+
+Always enforce page-pod structure:
+Each page must contain:
+
+index.html
+
+spec.md
+
+images/ directory
+
+Never create flat .html files at root.

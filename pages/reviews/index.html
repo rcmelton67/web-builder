@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pet Memorial Stone Reviews | Melton Memorials</title>
+<meta name="description" content="Read real customer reviews of our handcrafted granite pet memorial stones, dog headstones, and custom engraved pet grave markers.">
+
+<link rel="canonical" href="https://meltonmemorials.com/reviews/">
+
+<link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">Melton Memorials</a>
+  </div>
+</header>
+
+<nav class="breadcrumb container">
+  <a href="/">Home</a> › <span>Reviews</span>
+</nav>
+
+<main class="container">
+
+<h1>Pet Memorial Stone Reviews</h1>
+
+<div class="reviews-topline">
+  <div></div>
+  <input type="text" id="review-search" placeholder="Search reviews..." aria-label="Search reviews">
+</div>
+
+<section class="reviews-authority">
+  <p>
+    Families across the United States trust Melton Memorials for custom engraved granite pet memorial stones designed for long-term outdoor durability.
+    Customers frequently mention beautiful craftsmanship, deep engraving clarity, and memorial stones that exceed expectations.
+  </p>
+</section>
+
+<section class="rating-summary">
+  <div class="rating-left">
+    <div class="big-rating" id="average-rating">—</div>
+    <div class="avg-label">★ Average Rating</div>
+    <div class="total-line">
+      Based on <span id="review-count">—</span> verified reviews
+    </div>
+  </div>
+
+  <div class="rating-right" id="rating-bars">
+    <!-- JS will render star bars here -->
+  </div>
+</section>
+
+<div>
+  <div style="font-weight:600; opacity:.85; margin-top:.5rem;">Most Mentioned:</div>
+  <div class="review-pills" id="review-pills"></div>
+</div>
+
+<section class="review-grid" id="review-grid">
+
+  <!-- Static seed (SEO anchor) -->
+  <article class="review-card">
+    <div class="review-stars">★★★★★</div>
+    <p>Beautiful memorial stone. The quality exceeded expectations and the engraving is clear and deep.</p>
+  </article>
+
+  <article class="review-card">
+    <div class="review-stars">★★★★★</div>
+    <p>Exactly what we wanted to honor our dog. Excellent craftsmanship and fast shipping.</p>
+  </article>
+
+</section>
+
+<section class="reviews-faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Are these reviews verified?</h3>
+<p>Yes. These reviews are exported from verified customer purchases.</p>
+
+<h3>Are granite memorial stones durable outdoors?</h3>
+<p>Granite is highly weather-resistant and suitable for long-term outdoor placement.</p>
+
+<h3>How long does shipping take?</h3>
+<p>Production typically takes 7–10 days before shipment.</p>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    © Melton Memorials
+  </div>
+</footer>
+
+<script>
+(async function(){
+
+  const grid = document.getElementById("review-grid");
+
+  try {
+
+    const [r1, r2] = await Promise.all([
+      fetch("/reviews-1.json").then(r => r.json()),
+      fetch("/reviews-2.json").then(r => r.json())
+    ]);
+
+    const reviews = [...r1, ...r2];
+    const searchInput = document.getElementById("review-search");
+    const barsEl = document.getElementById("rating-bars");
+    const pillsEl = document.getElementById("review-pills");
+
+    let activeStarFilter = null;     // 5,4,3,2,1 or null
+    let activePill = null;           // string or null
+    let searchTerm = "";
+
+    const validReviews = reviews.filter(r => typeof r.star_rating === "number");
+
+    const totalReviews = validReviews.length;
+
+    let averageRating = totalReviews > 0
+      ? validReviews.reduce((sum, r) => sum + r.star_rating, 0) / totalReviews
+      : 0;
+
+    if (!isFinite(averageRating)) {
+      averageRating = 0;
+    }
+
+    const starCounts = { 5:0, 4:0, 3:0, 2:0, 1:0 };
+
+    validReviews.forEach(r => {
+      if (starCounts[r.star_rating] !== undefined) {
+        starCounts[r.star_rating]++;
+      }
+    });
+
+    function normalizeText(s) {
+      return (s || "").toLowerCase();
+    }
+
+    function matchesFilters(r) {
+      if (!r.message) return false;
+
+      if (activeStarFilter && r.star_rating !== activeStarFilter) return false;
+
+      const msg = normalizeText(r.message);
+
+      if (searchTerm && !msg.includes(searchTerm)) return false;
+
+      if (activePill) {
+        const pill = normalizeText(activePill);
+        if (!msg.includes(pill)) return false;
+      }
+
+      return true;
+    }
+
+    function renderReviews(list) {
+      grid.innerHTML = "";
+
+      const filtered = list.filter(matchesFilters);
+
+      filtered.forEach(review => {
+        const card = document.createElement("article");
+        card.className = "review-card";
+
+        const stars = "★".repeat(review.star_rating || 0);
+
+        card.innerHTML = `
+          <div class="review-stars">${stars}</div>
+          <p class="review-text">${review.message}</p>
+          <div class="review-meta">
+            <span class="review-author">${review.reviewer || ""}</span>
+            <span class="review-date">${review.date_reviewed || ""}</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      // Optional: If empty results, show a friendly message
+      if (filtered.length === 0) {
+        const empty = document.createElement("div");
+        empty.style.opacity = "0.7";
+        empty.style.marginTop = "1rem";
+        empty.textContent = "No reviews match your filters.";
+        grid.appendChild(empty);
+      }
+    }
+
+    function renderBars(starCounts, total) {
+      if (!barsEl) return;
+      barsEl.innerHTML = "";
+
+      [5,4,3,2,1].forEach(star => {
+        const count = starCounts[star] || 0;
+        const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+
+        const row = document.createElement("div");
+        row.className = "star-row" + (activeStarFilter === star ? " active" : "");
+        row.innerHTML = `
+          <div>${star} stars</div>
+          <div class="bar"><div class="bar-fill" style="width:${pct}%"></div></div>
+          <div style="opacity:.7; text-align:right;">${count}</div>
+        `;
+
+        row.addEventListener("click", () => {
+          activeStarFilter = (activeStarFilter === star) ? null : star;
+          renderBars(starCounts, total);
+          renderReviews(validReviews);
+        });
+
+        barsEl.appendChild(row);
+      });
+    }
+
+    const defaultPills = [
+      "Beautiful Memorial Stone",
+      "Highly Recommend",
+      "Customer Service",
+      "Exceeded Expectations",
+      "High Quality",
+      "Fast Shipping",
+      "Excellent Customer Service",
+      "Absolutely Beautiful"
+    ];
+
+    function renderPills() {
+      if (!pillsEl) return;
+      pillsEl.innerHTML = "";
+
+      defaultPills.forEach(label => {
+        const pill = document.createElement("div");
+        pill.className = "review-pill" + (activePill === label ? " active" : "");
+        pill.textContent = label;
+
+        pill.addEventListener("click", () => {
+          activePill = (activePill === label) ? null : label;
+          renderPills();
+          renderReviews(validReviews);
+        });
+
+        pillsEl.appendChild(pill);
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        searchTerm = normalizeText(e.target.value);
+        renderReviews(validReviews);
+      });
+    }
+
+    renderBars(starCounts, totalReviews);
+    renderPills();
+    renderReviews(validReviews);
+
+    document.getElementById("review-count").textContent = totalReviews.toLocaleString();
+    document.getElementById("average-rating").textContent = averageRating.toFixed(1);
+
+  } catch (err) {
+    console.error("Review load error:", err);
+  }
+
+})();
+</script>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Melton Memorials",
+ "aggregateRating": {
+   "@type": "AggregateRating",
+   "ratingValue": "4.9",
+   "reviewCount": "3800"
+ }
+}
+</script>
+
+</body>
+</html>

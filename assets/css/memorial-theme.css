@@ -1,0 +1,137 @@
+/* =========================================
+   MEMORIAL THEME — Shared Design System
+   Used by: granite product page, builder page
+   ========================================= */
+
+/* ─── Spacing Tokens ─── */
+:root {
+  --space-xs: 10px;
+  --space-sm: 20px;
+  --space-md: 40px;
+  --space-lg: 60px;
+  --space-xl: 80px;
+}
+
+/* ─── Dark Brand Band ─────────────────────
+   Visual continuation from site header.
+   Header (position: absolute) overlays this.
+   ───────────────────────────────────────── */
+.page-band-dark {
+  height: 130px;
+  background: linear-gradient(to bottom, #1f1f1f 0%, #2a2a2a 100%);
+}
+
+/* ─── Breadcrumb ──────────────────────────
+   Understated back-link below band.
+   ───────────────────────────────────────── */
+.page-breadcrumb {
+  max-width: 1100px;
+  margin: 25px auto var(--space-xs) auto;
+  padding: 0 var(--space-sm);
+}
+
+.page-breadcrumb .back-link {
+  color: #1c1c1c;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.page-breadcrumb .back-link:hover {
+  text-decoration: underline;
+}
+
+/* ─── Page Header (standalone H1 block) ──
+   Used when H1 sits alone above content.
+   ───────────────────────────────────────── */
+.page-header {
+  max-width: 1100px;
+  margin: 20px auto 20px auto;
+  padding: 0 var(--space-sm);
+}
+
+.page-header h1 {
+  font-size: 2.3rem;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.page-subtext {
+  font-size: 1.05rem;
+  color: #555;
+  max-width: 700px;
+}
+
+/* ─── Page Container ─────────────────────
+   Replaces .container inside themed pages.
+   ───────────────────────────────────────── */
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+/* ─── Page Section ───────────────────────
+   Standard vertical rhythm for content blocks.
+   Background set per-section where needed.
+   ───────────────────────────────────────── */
+.page-section {
+  padding: var(--space-lg) 0;
+}
+
+.page-section h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.page-section h2:first-child {
+  margin-top: 0;
+}
+
+/* ─── Card Base ──────────────────────────
+   Reusable tile style for size / layout cards.
+   ───────────────────────────────────────── */
+.card-base {
+  background: #ffffff;
+  border: 1px solid #e5e1dc;
+  padding: 24px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.card-base.selected {
+  border: 2px solid #1c1c1c;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* ─── Price Emphasis ─────────────────────
+   Clean, dark, prominent price display.
+   ───────────────────────────────────────── */
+.price-display {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* ─── Mobile Adjustments ─────────────────── */
+@media (max-width: 768px) {
+  .page-band-dark {
+    height: 100px;
+  }
+
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .page-section {
+    padding: var(--space-md) 0;
+  }
+
+  .page-breadcrumb {
+    margin: var(--space-sm) auto var(--space-xs) auto;
+  }
+
+  .page-container {
+    padding: 0 5%;
+  }
+}

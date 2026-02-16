@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review Intelligence Report | Melton Memorials</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+/* ── Base ── */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #f8f7f5;
+  color: #1c1c1c;
+}
+
+/* ── Header ── */
+.report-header {
+  background: #1c1c1c;
+  color: #fff;
+  padding: 36px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.report-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.report-header .subtitle {
+  font-size: 0.88rem;
+  color: #aaa;
+  margin-top: 4px;
+}
+.btn-export {
+  padding: 12px 28px;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 600;
+  background: #b08a2e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-export:hover { background: #9a7828; }
+
+/* ── Stats Bar ── */
+.stats-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 40px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.stat-card {
+  background: #fff;
+  border: 1px solid #e6e3df;
+  border-radius: 12px;
+  padding: 20px 28px;
+  min-width: 180px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.stat-card .stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #b08a2e;
+}
+.stat-card .stat-label {
+  font-size: 0.82rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ── Sections ── */
+.report-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 60px 40px;
+}
+.report-section {
+  margin-top: 40px;
+}
+.report-section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: #1c1c1c;
+}
+.report-section .section-desc {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0 0 18px 0;
+}
+
+/* ── Tables ── */
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.report-table th {
+  text-align: left;
+  padding: 12px 18px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  background: #faf9f7;
+  border-bottom: 1px solid #eee;
+}
+.report-table td {
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f4f3f1;
+}
+.report-table tr:last-child td { border-bottom: none; }
+.report-table tr:hover td { background: #fdfcfa; }
+.report-table .rank { color: #bbb; font-size: 0.8rem; min-width: 36px; }
+.report-table .count { color: #b08a2e; font-weight: 600; }
+.report-table .bar-cell { width: 30%; }
+.mini-bar {
+  height: 8px;
+  background: #f0eeeb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.mini-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, #c6a74a, #b08a2e);
+  border-radius: 4px;
+}
+
+/* ── Theme Cards ── */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.theme-card {
+  background: #fff;
+  border: 1px solid #e6e3df;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.theme-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: #b08a2e;
+}
+.theme-card .theme-count {
+  font-size: 0.8rem;
+  color: #999;
+  margin-bottom: 12px;
+}
+.theme-card .theme-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.theme-card .theme-words span {
+  background: #f4f2ef;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* ── Marketing Phrases ── */
+.phrase-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+.phrase-card {
+  background: #fff;
+  border: 1px solid #e6e3df;
+  border-radius: 10px;
+  padding: 18px 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.phrase-card .phrase-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
+.phrase-card .phrase-count {
+  font-size: 0.82rem;
+  color: #b08a2e;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── Loading ── */
+.loading {
+  text-align: center;
+  padding: 80px 20px;
+  color: #999;
+  font-size: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .report-header { padding: 24px 20px; }
+  .stats-bar { padding: 16px 20px; gap: 16px; }
+  .report-body { padding: 0 20px 40px 20px; }
+  .stat-card { min-width: 120px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="report-header">
+  <div>
+    <h1>📊 Review Intelligence Report</h1>
+    <div class="subtitle">Melton Memorials — Language Mining Analysis</div>
+  </div>
+  <button class="btn-export" id="exportBtn" disabled>Export JSON Report</button>
+</div>
+
+<div class="stats-bar" id="statsBar">
+  <div class="stat-card"><div class="stat-value" id="statTotal">—</div><div class="stat-label">Total Reviews</div></div>
+  <div class="stat-card"><div class="stat-value" id="statAvg">—</div><div class="stat-label">Avg Rating</div></div>
+  <div class="stat-card"><div class="stat-value" id="statUniqueWords">—</div><div class="stat-label">Unique Words</div></div>
+  <div class="stat-card"><div class="stat-value" id="statPhrases">—</div><div class="stat-label">Unique 2-Word Phrases</div></div>
+</div>
+
+<div class="report-body" id="reportBody">
+  <div class="loading" id="loadingMsg">Loading reviews…</div>
+</div>
+
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Stop Words ── */
+  const stopWords = new Set([
+    "the","and","for","with","this","that","from","have","was","were",
+    "are","but","not","you","our","they","their","very","really",
+    "would","could","there","been","about","just","into","out",
+    "your","his","her","she","him","them","its","it's","we","had",
+    "has","get","got","did","does","done","than","then","also",
+    "so","my","me","i","it","a","an","of","to","in","on","at","as",
+    "is","be","or","if","do","am","no","up","by","he","who","us",
+    "can","will","all","what","when","how","each","which","more",
+    "some","such","only","other","much","over","back","even","here",
+    "after","before","any","most","same","own","made","make","still",
+    "way","one","came","come","thing","went","know","think","because",
+    "again","well","day","two","many","put","going","first","like",
+    "take","thank","thanks","good","great","nice","don","doesn",
+    "didn","won","let","isn","wasn"
+  ]);
+
+  /* ── Theme Definitions ── */
+  const themeDefs = {
+    "Quality & Craftsmanship":   ["quality","beautiful","craftsmanship","crafted","handcrafted","gorgeous","stunning","detailed","detail","solid","heavy","durable","thick","weight","polished","smooth","premium","perfect","excellent","superb","amazing","wonderful","impressive"],
+    "Engraving & Lettering":     ["engraving","engraved","engrave","lettering","letters","font","inscription","carved","carving","etched","etching","deep","readable","crisp","clear","writing","personalized","custom","customized","text"],
+    "Shipping & Delivery":       ["shipping","shipped","delivery","delivered","arrived","fast","quick","quickly","prompt","timely","early","days","weeks","tracking","package","packaged","packaging","wrapped","box","received"],
+    "Customer Service":          ["service","communication","responsive","response","responded","helpful","friendly","answered","questions","professional","contacted","email","phone","customer","support","team","accommodating","attentive","care","caring"],
+    "Emotional Impact":          ["love","loved","comfort","comforting","healing","honor","tribute","remember","remembrance","memorial","memory","memories","special","meaningful","touching","heartfelt","treasure","cherish","grief","loss","passed","rainbow","bridge","forever","peace","peaceful"],
+    "Pet Types":                 ["dogs","cats","puppy","kitten","horse","bird","rabbit","bunny","guinea","hamster","turtle","fish","ferret","parrot","companion","furry","friend","baby","paw","paws"],
+    "Appearance & Design":       ["stone","granite","marble","color","colors","natural","look","looks","looking","photo","picture","image","size","large","small","medium","garden","yard","grave","gravesite","placement","display"],
+    "Value & Recommendation":    ["recommend","recommended","worth","price","value","money","affordable","investment","purchase","order","ordered","another","again","return","future","family","families","friend","friends","gift"]
+  };
+
+  let reportData = null;
+
+  /* ── Load ── */
+  async function loadReviews() {
+    const res = await fetch("../data/reviews.json");
+    const reviews = await res.json();
+    analyze(reviews);
+  }
+
+  /* ── Analyze ── */
+  function analyze(reviews) {
+    const wordCounts = {};
+    const phrase2 = {};
+    const phrase3 = {};
+    const themeCounts = {};
+    const themeWords = {};
+    let ratingSum = 0;
+
+    // Init themes
+    for (const theme in themeDefs) {
+      themeCounts[theme] = 0;
+      themeWords[theme] = {};
+    }
+
+    reviews.forEach(r => {
+      ratingSum += (r.rating || 0);
+
+      const text = (r.text || "").toLowerCase().replace(/[^\w\s]/g, "");
+      const words = text.split(/\s+/).filter(w => w.length > 3 && !stopWords.has(w));
+
+      // Single words
+      words.forEach(word => {
+        wordCounts[word] = (wordCounts[word] || 0) + 1;
+      });
+
+      // 2-word phrases
+      for (let i = 0; i < words.length - 1; i++) {
+        const p = words[i] + " " + words[i + 1];
+        phrase2[p] = (phrase2[p] || 0) + 1;
+      }
+
+      // 3-word phrases
+      for (let i = 0; i < words.length - 2; i++) {
+        const p = words[i] + " " + words[i + 1] + " " + words[i + 2];
+        phrase3[p] = (phrase3[p] || 0) + 1;
+      }
+
+      // Theme matching (per review, count once per theme)
+      const lowerText = (r.text || "").toLowerCase();
+      for (const theme in themeDefs) {
+        const keywords = themeDefs[theme];
+        let matched = false;
+        for (let k = 0; k < keywords.length; k++) {
+          if (lowerText.indexOf(keywords[k]) !== -1) {
+            matched = true;
+            themeWords[theme][keywords[k]] = (themeWords[theme][keywords[k]] || 0) + 1;
+          }
+        }
+        if (matched) themeCounts[theme]++;
+      }
+    });
+
+    const topWords = sortObj(wordCounts).slice(0, 50);
+    const topPhrase2 = sortObj(phrase2).slice(0, 50);
+    const topPhrase3 = sortObj(phrase3).slice(0, 30);
+
+    // Marketing phrases: 2/3 word phrases with count >= 3, titlecased
+    const marketing = sortObj(phrase2)
+      .filter(p => p[1] >= 3)
+      .slice(0, 15)
+      .concat(sortObj(phrase3).filter(p => p[1] >= 3).slice(0, 10));
+    marketing.sort((a, b) => b[1] - a[1]);
+
+    // Build sorted themes
+    const themesSorted = Object.entries(themeCounts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([name, count]) => ({
+        name,
+        count,
+        topWords: sortObj(themeWords[name]).slice(0, 8)
+      }));
+
+    reportData = {
+      generated: new Date().toISOString(),
+      totalReviews: reviews.length,
+      avgRating: reviews.length > 0 ? (ratingSum / reviews.length).toFixed(2) : "0",
+      uniqueWords: Object.keys(wordCounts).length,
+      uniquePhrases: Object.keys(phrase2).length,
+      topWords,
+      topPhrase2,
+      topPhrase3,
+      themes: themesSorted,
+      marketingPhrases: marketing.slice(0, 20)
+    };
+
+    renderReport(reportData);
+  }
+
+  function sortObj(obj) {
+    return Object.entries(obj).sort((a, b) => b[1] - a[1]);
+  }
+
+  /* ── Render ── */
+  function renderReport(data) {
+    // Stats
+    document.getElementById('statTotal').textContent = data.totalReviews.toLocaleString();
+    document.getElementById('statAvg').textContent = data.avgRating + " ★";
+    document.getElementById('statUniqueWords').textContent = data.uniqueWords.toLocaleString();
+    document.getElementById('statPhrases').textContent = data.uniquePhrases.toLocaleString();
+
+    const body = document.getElementById('reportBody');
+    body.innerHTML = '';
+
+    // 1. Top Words
+    body.appendChild(buildSection(
+      "Top 50 Words",
+      "Most frequently used words across all reviews (stop words excluded).",
+      buildTable(data.topWords)
+    ));
+
+    // 2. Top 2-Word Phrases
+    body.appendChild(buildSection(
+      "Top 50 Two-Word Phrases",
+      "Most common adjacent word pairs found in review text.",
+      buildTable(data.topPhrase2)
+    ));
+
+    // 3. Top 3-Word Phrases
+    body.appendChild(buildSection(
+      "Top 30 Three-Word Phrases",
+      "Most common three-word sequences found in review text.",
+      buildTable(data.topPhrase3)
+    ));
+
+    // 4. Themes
+    body.appendChild(buildSection(
+      "Most Mentioned Themes",
+      "Reviews categorized by common topic areas.",
+      buildThemes(data.themes)
+    ));
+
+    // 5. Marketing Phrases
+    body.appendChild(buildSection(
+      "Suggested Marketing Phrases",
+      "High-frequency multi-word phrases suitable for marketing copy.",
+      buildMarketing(data.marketingPhrases)
+    ));
+
+    // Enable export
+    document.getElementById('exportBtn').disabled = false;
+  }
+
+  function buildSection(title, desc, content) {
+    const section = document.createElement('div');
+    section.className = 'report-section';
+    const h2 = document.createElement('h2');
+    h2.textContent = title;
+    const p = document.createElement('p');
+    p.className = 'section-desc';
+    p.textContent = desc;
+    section.appendChild(h2);
+    section.appendChild(p);
+    section.appendChild(content);
+    return section;
+  }
+
+  function buildTable(entries) {
+    const maxCount = entries.length > 0 ? entries[0][1] : 1;
+    const table = document.createElement('table');
+    table.className = 'report-table';
+    table.innerHTML =
+      '<thead><tr><th style="width:50px">#</th><th>Word / Phrase</th><th style="width:80px">Count</th><th class="bar-cell">Frequency</th></tr></thead>';
+    const tbody = document.createElement('tbody');
+
+    entries.forEach(([word, count], i) => {
+      const pct = ((count / maxCount) * 100).toFixed(1);
+      const tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td class="rank">' + (i + 1) + '</td>' +
+        '<td>' + escapeHtml(word) + '</td>' +
+        '<td class="count">' + count.toLocaleString() + '</td>' +
+        '<td class="bar-cell"><div class="mini-bar"><div class="mini-bar-fill" style="width:' + pct + '%"></div></div></td>';
+      tbody.appendChild(tr);
+    });
+
+    table.appendChild(tbody);
+    return table;
+  }
+
+  function buildThemes(themes) {
+    const grid = document.createElement('div');
+    grid.className = 'theme-grid';
+
+    themes.forEach(theme => {
+      const card = document.createElement('div');
+      card.className = 'theme-card';
+      let wordsHtml = '';
+      theme.topWords.forEach(([w, c]) => {
+        wordsHtml += '<span>' + escapeHtml(w) + ' (' + c + ')</span>';
+      });
+      card.innerHTML =
+        '<h3>' + escapeHtml(theme.name) + '</h3>' +
+        '<div class="theme-count">' + theme.count.toLocaleString() + ' reviews mention this theme</div>' +
+        '<div class="theme-words">' + wordsHtml + '</div>';
+      grid.appendChild(card);
+    });
+
+    return grid;
+  }
+
+  function buildMarketing(phrases) {
+    const grid = document.createElement('div');
+    grid.className = 'phrase-cards';
+
+    phrases.forEach(([phrase, count]) => {
+      const card = document.createElement('div');
+      card.className = 'phrase-card';
+      const titleCase = phrase.replace(/\b\w/g, c => c.toUpperCase());
+      card.innerHTML =
+        '<span class="phrase-text">"' + escapeHtml(titleCase) + '"</span>' +
+        '<span class="phrase-count">' + count + '×</span>';
+      grid.appendChild(card);
+    });
+
+    return grid;
+  }
+
+  /* ── Export ── */
+  document.getElementById('exportBtn').addEventListener('click', function () {
+    if (!reportData) return;
+
+    const blob = new Blob([JSON.stringify(reportData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'review-intelligence-report.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  /* ── Helpers ── */
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  /* ── Init ── */
+  loadReviews().catch(err => {
+    document.getElementById('reportBody').innerHTML =
+      '<div class="loading" style="color:#c44;">Failed to load reviews. Make sure this page is served from a local server.</div>';
+    console.error('Load error:', err);
+  });
+
+})();
+</script>
+
+</body>
+</html>
