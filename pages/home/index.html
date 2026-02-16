@@ -126,11 +126,10 @@ body {
 /* HERO */
 .hero {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 120px;
+  width: 100vw;
+  height: 80vh;
+  min-height: 560px;
+  overflow: hidden;
 }
 
 .hero-bg {
@@ -140,16 +139,32 @@ body {
   background-size: contain;
   background-position: center bottom;
   background-repeat: no-repeat;
-  z-index: -1;
+  background-color: #111;
+  z-index: 0;
+}
+
+/* Dark gradient overlay across entire hero */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.45) 40%,
+    rgba(0,0,0,0.55) 100%
+  );
+  z-index: 1;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  max-width: 900px;
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.35);
-  padding: 30px 40px;
-  border-radius: 6px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 200px;   /* push text lower */
 }
 
 .hero-cta .btn {
@@ -220,20 +235,14 @@ body {
   opacity: 0.7;
 }
 
-/* HEADER OVERLAY */
-header {
+/* HEADER OVER HERO (do not override granite typography/colors) */
+.site-header {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   background: transparent !important;
   z-index: 1000;
-}
-
-header a,
-header .logo,
-header .tagline {
-  color: #ffffff !important;
 }
 </style>
 </body>
