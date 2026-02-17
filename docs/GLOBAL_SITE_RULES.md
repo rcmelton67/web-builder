@@ -93,3 +93,33 @@ page_architecture:
   slug_must_follow_slug_rules: true
   spec_must_exist_before_content_creation: true
   validate_against_global_seo_strategy: true
+
+competitive_audit_checklist:
+  # Use this checklist when auditing pages against competitors
+  
+  trust_signals:
+    - testimonials_visible: 3-5 on homepage
+    - review_count_shown: aggregate rating displayed
+    - customer_photos: memorial gallery or testimonials
+    - aggregate_rating_schema: implemented for rich snippets
+  
+  conversion_elements:
+    - shipping_info: free shipping or cost stated
+    - turnaround_time: clearly communicated
+    - guarantee: satisfaction guarantee mentioned
+    - faq_section: present with common questions answered
+  
+  content_completeness:
+    - hero_value_prop: clear and compelling
+    - material_coverage: granite, cast stone, river rock mentioned
+    - size_options: guidance for buyers
+    - customization_options: engraving, paw prints, etc.
+    - internal_links: materials and products linked
+  
+  technical_seo:
+    - schema_markup: Organization, LocalBusiness, Product, FAQ
+    - social_meta: Open Graph and Twitter cards
+    - canonical_url: present
+    - single_h1: verified
+    - image_optimization: WebP format, descriptive filenames
+
