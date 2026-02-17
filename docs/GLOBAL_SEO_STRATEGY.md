@@ -31,6 +31,28 @@ secondary_keyword_clusters:
     - engraved dog grave marker
     - pet memorial stone near me
 
+homepage_strategy:
+  role: national authority hub
+  purpose:
+    - establish brand trust
+    - define materials
+    - introduce category
+    - funnel to commercial pages
+  primary_keywords:
+    - pet memorial stones (informational)
+    - engraved memorial markers
+  secondary_keywords:
+    - granite
+    - cast stone
+    - natural river rock
+    - outdoor placement
+    - deep engraving
+  avoid:
+    - buy pet memorial stones
+    - custom pet memorial stones
+    - pricing keywords
+    - transactional modifiers
+
 content_structure_strategy:
 
   category_pages:

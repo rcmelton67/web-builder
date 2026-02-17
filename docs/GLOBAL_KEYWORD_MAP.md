@@ -4,6 +4,35 @@ Melton Memorials — Controlled SEO Architecture
 This file defines primary keyword ownership per page to prevent cannibalization and ensure focused intent.
 
 --------------------------------------------------
+PAGE: /pages/home/index.html (HOMEPAGE)
+--------------------------------------------------
+
+PRIMARY:
+- pet memorial stones (broad informational)
+- melton memorials
+
+SECONDARY:
+- handcrafted pet memorial stones
+- engraved memorial markers
+- granite memorial stones
+- cast stone memorial markers
+- natural river rock memorials
+- outdoor memorial stones
+
+MUST INCLUDE:
+- granite
+- cast stone
+- natural river rock
+- deep engraving
+- outdoor placement
+- dogs, cats, horses, birds, reptiles
+
+MUST NOT PRIMARY TARGET:
+- custom pet memorial stones
+- buy pet memorial stones
+- personalized pet memorial stone
+
+--------------------------------------------------
 PAGE: custom-pet-memorial-stones.html
 --------------------------------------------------
 
