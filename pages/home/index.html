@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Melton Memorials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <link rel="stylesheet" href="../../assets/css/memorial-theme.css">
 </head>
 <body>
 <header class="site-header">
@@ -97,32 +100,6 @@ body {
   padding: 0 20px;
 }
 
-.site-header {
-  background: #fff;
-  border-bottom: 1px solid #eee;
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 0;
-}
-
-.logo a {
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: #000;
-}
-
-.main-nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
 /* HERO */
 .hero {
   position: relative;
@@ -159,9 +136,13 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
   text-align: center;
   color: #ffffff;
-  padding-top: 180px;
+  padding-top: 160px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .hero-cta .btn {
@@ -232,13 +213,8 @@ body {
   opacity: 0.7;
 }
 
-/* Overlay granite header over hero */
 header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+  border-bottom: none !important;
 }
 </style>
 </body>
