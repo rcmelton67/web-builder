@@ -7,9 +7,78 @@
   <title>Handcrafted Pet Memorial Stones | Engraved Memorial Markers</title>
   <meta name="description"
     content="Handcrafted pet memorial stones designed for lasting outdoor placement. Deeply engraved memorial markers for dogs, cats, horses, birds, reptiles, and beloved companions. Built to endure.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://meltonmemorials.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Melton Memorials" />
+  <meta property="og:title" content="Handcrafted Pet Memorial Stones | Engraved Memorial Markers" />
+  <meta property="og:description"
+    content="Handcrafted pet memorial stones designed for lasting outdoor placement. Deeply engraved memorial markers for dogs, cats, horses, birds, reptiles, and beloved companions. Built to endure." />
+  <meta property="og:url" content="https://meltonmemorials.com/" />
+  <meta property="og:image" content="https://meltonmemorials.com/assets/images/handcrafted-pet-memorial-stones.webp" />
+  <meta property="og:image:alt"
+    content="Handcrafted engraved pet memorial stone honoring a beloved dog and cat in an outdoor woodland setting" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Handcrafted Pet Memorial Stones | Engraved Memorial Markers" />
+  <meta name="twitter:description"
+    content="Handcrafted pet memorial stones designed for lasting outdoor placement. Deeply engraved memorial markers for dogs, cats, horses, birds, reptiles, and beloved companions. Built to endure." />
+  <meta name="twitter:image" content="https://meltonmemorials.com/assets/images/handcrafted-pet-memorial-stones.webp" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.ico" />
+
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/styles.css">
   <link rel="stylesheet" href="../../assets/css/memorial-theme.css">
+
+  <!-- JSON-LD Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://meltonmemorials.com/#organization",
+        "name": "Melton Memorials",
+        "url": "https://meltonmemorials.com/",
+        "email": "rodney@meltonmemorials.com",
+        "telephone": "+1-479-430-0716",
+        "logo": "https://meltonmemorials.com/assets/images/handcrafted-pet-memorial-stones.webp",
+        "sameAs": []
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://meltonmemorials.com/#localbusiness",
+        "name": "Melton Memorials",
+        "url": "https://meltonmemorials.com/",
+        "image": "https://meltonmemorials.com/assets/images/handcrafted-pet-memorial-stones.webp",
+        "telephone": "+1-479-430-0716",
+        "email": "rodney@meltonmemorials.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Alma",
+          "addressRegion": "AR",
+          "addressCountry": "US"
+        },
+        "areaServed": "US",
+        "priceRange": "$$",
+        "parentOrganization": { "@id": "https://meltonmemorials.com/#organization" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://meltonmemorials.com/#website",
+        "url": "https://meltonmemorials.com/",
+        "name": "Melton Memorials",
+        "publisher": { "@id": "https://meltonmemorials.com/#organization" }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -66,14 +135,22 @@
 
   <section class="brand-authority">
     <div class="container">
-      <h2>Crafted with Care. Built for Generations.</h2>
-      <p>
-        Each memorial stone is shaped, finished, and engraved with intention.
-        We work with durable materials including cast stone, granite, and natural river rock —
-        each selected for lasting outdoor placement.
-        Deep engraving ensures names and dates remain clear for years to come,
-        creating a permanent tribute worthy of remembrance.
-      </p>
+      <div class="authority-content">
+        <div class="authority-image">
+          <img src="../../assets/images/crafting pet memorial.jpg" alt="Creating a pet memorial stone">
+        </div>
+        <div class="authority-text">
+          <h2>Crafted with Care. Built for Generations.</h2>
+          <p>
+            Each memorial stone is shaped, finished, and engraved with intention.
+            We work with durable materials including cast stone, <a
+              href="../products/granite-pet-memorial-stone/index.html">granite</a>, and natural river rock —
+            each selected for lasting outdoor placement.
+            Deep engraving ensures names and dates remain clear for years to come,
+            creating a permanent tribute worthy of remembrance.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -186,7 +263,7 @@
 
     .hero-content {
       position: absolute;
-      top: 50%;
+      top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
       max-width: 900px;
@@ -275,11 +352,45 @@
 
     .brand-authority {
       padding: 60px 0;
-      text-align: center;
     }
 
-    .brand-authority h2 {
+    .authority-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .authority-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .authority-text {
+      text-align: left;
+    }
+
+    .authority-text h2 {
       margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .authority-text p {
+      line-height: 1.7;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .authority-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .authority-text {
+        text-align: center;
+      }
     }
 
     .site-footer {
