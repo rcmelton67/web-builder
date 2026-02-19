@@ -26,115 +26,158 @@ a {
   padding: 0 3%;
 }
 
+
 /* =========================
-     HEADER (Dark Gradient)
-  ========================= */
+     DEPRECATED STYLES
+   ========================= */
+
+/* DO NOT USE .page-band-dark */
+/* This element is obsolete and causes double-thick headers.
+   The .site-header handles all necessary styling. */
+.page-band-dark {
+  display: none !important;
+}
+
+/* =========================
+     HEADER (Standardized)
+   ========================= */
+
 
 .site-header {
-  position: absolute;
-  top: 0;
-  width: 100%;
+  background: linear-gradient(to right, #1a1a1a, #222);
+  padding: 30px 0;
+  position: relative;
   z-index: 20;
-  padding: 28px 0;
-  background: linear-gradient(to bottom,
-      #2a2a2a 0%,
-      #1f1f1f 100%);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .site-header.transparent-header {
   background: transparent !important;
   background-image: none !important;
   box-shadow: none !important;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
-.header-inner {
+.nav-container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+/* Logo Wrapper */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* REMOVE BULLETS GLOBALLY */
+.nav-list,
+.nav-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* HORIZONTAL NAV */
+.nav-list {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* LINKS */
+.nav-list a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+}
+
+.nav-list a:hover {
+  opacity: 0.7;
+}
+
+/* =========================
+   DROPDOWN (Fixed)
+========================= */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: #1f1f1f;
+  padding: 15px 0;
+  min-width: 220px;
+  display: none;
+  flex-direction: column;
+  border-radius: 6px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 22px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.85);
+  border: none;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  opacity: 1;
+}
+
+/* Toggle Styles */
+.dropdown-toggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+}
+
+/* Remove old nav-toggle::after if it conflicts, but here we define for dropdown-toggle */
+.dropdown-toggle::after {
+  content: "▾";
+  margin-left: 6px;
+  font-size: 0.8em;
+}
+
+
 
 /* =========================
      BRAND
   ========================= */
 
 .brand {
-  display: inline-block;
+  margin-left: -4px;
   text-align: center;
 }
-
-/* =========================
-   BRAND AUTHORITY SECTION
-========================= */
-
-.brand-authority {
-  padding: 60px 0;
-  background: #f4f2ee;
-}
-
-.authority-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 60px;
-  align-items: center;
-}
-
-.authority-text h2 {
-  font-size: 38px;
-  margin-bottom: 28px;
-  line-height: 1.2;
-  color: #2b2b2b;
-}
-
-.authority-text p {
-  font-size: 18px;
-  line-height: 1.8;
-  color: #4a4a4a;
-}
-
-.authority-image img {
-  width: 80%;
-  height: auto;
-  border-radius: 6px;
-  display: block;
-}
-
-
-
-
-/* =========================
-   NAVIGATION
-========================= */
-
-.main-nav {
-  display: flex;
-  gap: 48px;
-  /* More breathing room */
-}
-
-.main-nav a {
-  font-size: 14px;
-  /* Slightly smaller */
-  letter-spacing: 3px;
-  /* More luxury spacing */
-  text-transform: uppercase;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
-  /* Softer */
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-
-.main-nav a:hover {
-  color: rgba(255, 255, 255, 1);
-  transform: translateY(-1px);
-}
-
-
 
 .brand a {
   text-decoration: none;
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .brand-main {
@@ -144,6 +187,9 @@ a {
   letter-spacing: 1.5px;
   line-height: 1.05;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -158,10 +204,7 @@ a {
   text-transform: uppercase;
   margin-top: 6px;
   opacity: 0.85;
-}
-
-.brand {
-  margin-left: -4px;
+  text-align: center;
 }
 
 
@@ -2802,6 +2845,7 @@ a {
   pointer-events: none;
   border-color: #eee;
 }
+
 /* Internal Linking Utilities */
 .subtle-silo {
   padding: 40px 0;
@@ -2825,4 +2869,106 @@ a {
 .subtle-silo p {
   color: #555;
   line-height: 1.6;
+}
+
+/* =========================
+   NAVIGATION DROPDOWN (Hard Reset)
+========================= */
+
+/* NAV RESET */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  /* Ensure horizontal layout for main nav if needed, checking context */
+  align-items: center;
+  /* Vertically align items */
+}
+
+/* Adjusting for existing nav structure if it wasn't a UL before.
+   The user asked to "Replace the entire Memorials nav block with this: <li...>"
+   This implies the parent container <nav class="main-nav"> might need to contain a <ul> now?
+   Or are we just putting the <li> inside the existing <nav>? 
+   The user said "Ensure this sits inside your main nav UL".
+   Currently <nav class="main-nav"> contains <a> tags directly.
+   I need to wrap them in a <ul> in the template.
+*/
+
+nav li {
+  position: relative;
+}
+
+/* DROPDOWN BASE */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1a1a1a;
+  min-width: 220px;
+  padding: 14px 0;
+  display: none;
+  flex-direction: column;
+  border-radius: 6px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  z-index: 999;
+
+  /* Premium Animation */
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown-menu.open {
+  display: flex;
+  /* Override none */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* LINKS INSIDE */
+.dropdown-menu li {
+  list-style: none;
+  margin: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 22px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: background 0.2s ease;
+  border: none;
+  /* Reset */
+}
+
+.dropdown-menu li a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu li a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+/* Toggle Styling */
+.dropdown-toggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  /* Inherit from nav links */
+  color: inherit;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-toggle::after {
+  content: "▾";
+  margin-left: 6px;
+  font-size: 0.8em;
 }
