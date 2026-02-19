@@ -7,6 +7,22 @@ const R1 = JSON.parse(fs.readFileSync(path.join(__dirname, '../reviews-1.json'),
 const R2 = JSON.parse(fs.readFileSync(path.join(__dirname, '../reviews-2.json'), 'utf8'));
 const ALL_REVIEWS = [...R1, ...R2].filter(r => typeof r.star_rating === 'number' && r.message);
 
+const CAT_INCLUDE = /\b(cat|kitty|kitten)\b/i;
+const EXCLUDE = /\b(necklace|pendant|jewelry|urn)\b/i;
+
+function filterCatReviews(reviews) {
+    const filtered = reviews.filter(r => {
+        const text = (r.message || "") + " " + (r.title || "");
+        return CAT_INCLUDE.test(text) && !EXCLUDE.test(text);
+    });
+
+
+
+    return filtered
+        .sort((a, b) => new Date(b.date_reviewed) - new Date(a.date_reviewed))
+        .slice(0, 15);
+}
+
 const PAGES = [
     {
         slug: 'dog-memorial-stones',
@@ -38,6 +54,7 @@ const PAGES = [
         slug: 'cat-memorial-stones',
         title: 'Cat Memorial Stones & Grave Markers | Melton Memorials',
         h1: 'Cat Memorial Stones for Garden & Outdoor Tribute',
+        reviews: filterCatReviews(ALL_REVIEWS),
         meta_desc: 'Beautiful cat memorial stones and grave markers. Honor your feline friend with a durable, engraved granite or river rock memorial. Perfect for gardens.',
         keywords: ['cat', 'kitty', 'kitten', 'feline'],
         related_links: `
@@ -307,24 +324,29 @@ PAGES.forEach(page => {
     console.log(`Building: ${page.title}`);
 
     // 1. Filter Reviews
-    const keywords = page.keywords;
-    let filtered = ALL_REVIEWS.filter(r => {
-        const msg = (r.message || "").toLowerCase();
-        // Exclusion Logic
-        if (msg.includes('necklace') || msg.includes('pendant') || msg.includes('jewelry') || msg.includes('urn')) return false;
+    // 1. Filter Reviews
+    let filtered;
+    if (page.reviews) {
+        filtered = page.reviews;
+    } else {
+        const keywords = page.keywords;
+        filtered = ALL_REVIEWS.filter(r => {
+            const msg = (r.message || "").toLowerCase();
+            // Exclusion Logic
+            if (msg.includes('necklace') || msg.includes('pendant') || msg.includes('jewelry') || msg.includes('urn')) return false;
 
-        return keywords.some(k => msg.includes(k));
-    });
+            return keywords.some(k => msg.includes(k));
+        });
 
-    // Sort Newest First (assuming date_reviewed is parsable, if not, we might need to parse it)
-    // Date format in JSON seems to be "MM/DD/YYYY"
-    filtered.sort((a, b) => {
-        const d1 = new Date(a.date_reviewed);
-        const d2 = new Date(b.date_reviewed);
-        return d2 - d1;
-    });
+        // Sort Newest First
+        filtered.sort((a, b) => {
+            const d1 = new Date(a.date_reviewed);
+            const d2 = new Date(b.date_reviewed);
+            return d2 - d1;
+        });
 
-    filtered = filtered.slice(0, 15); // Max 15
+        filtered = filtered.slice(0, 15); // Max 15
+    }
 
     let reviewsHtml = '';
     filtered.forEach(r => {

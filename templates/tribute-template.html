@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{Pet Name}} — {{Breed}} Memorial | Melton Memorials</title>
+    <meta name="description" content="{{Tribute Snippet}}">
+
+    <link rel="canonical" href="https://meltonmemorials.com/memorials/{{Pet Name Slug}}/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Melton Memorials" />
+    <meta property="og:title" content="{{Pet Name}} — {{Breed}} Memorial" />
+    <meta property="og:description" content="{{Tribute Snippet}}" />
+    <meta property="og:url" content="https://meltonmemorials.com/memorials/{{Pet Name Slug}}/" />
+    <meta property="og:image" content="{{Pet Photo URL}}" />
+
+    <!-- Fonts & Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/memorial-theme.css">
+</head>
+
+<body>
+    <!-- Header (Standardized) -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <a href="../home/index.html">
+                    <div class="brand-main">
+                        <span class="brand-top">MELTON</span>
+                        <span class="brand-bottom">MEMORIALS</span>
+                    </div>
+                    <div class="brand-tagline">Love • Honor • Remembrance</div>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <a href="../custom-pet-memorial-stones/index.html">Memorials</a>
+                <a href="../pet-memorial-guides/index.html">Guides</a>
+                <a href="../reviews/index.html">Reviews</a>
+                <a href="../../index.html">Tributes</a>
+                <a href="../about/index.html">About</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="tribute-page" style="padding-top: 150px; padding-bottom: 80px;">
+        <div class="container" style="max-width: 800px;">
+
+            <header class="tribute-header" style="text-align: center; margin-bottom: 40px;">
+                <h1 style="font-family: 'Libre Baskerville', serif; font-size: 2.5rem; margin-bottom: 10px;">{{Pet
+                    Name}} — {{Breed}} Memorial</h1>
+                <div style="font-size: 1.1rem; color: #666; text-transform: uppercase; letter-spacing: 1px;">{{Pet
+                    Type}}</div>
+            </header>
+
+            <div class="tribute-content">
+                <div class="tribute-image-wrapper"
+                    style="margin-bottom: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                    <img src="{{Pet Photo URL}}" alt="{{Pet Name}}" style="width: 100%; height: auto; display: block;">
+                </div>
+
+                <div class="tribute-text"
+                    style="font-size: 1.15rem; line-height: 1.8; color: #333; margin-bottom: 40px;">
+                    {{Tribute Text Block}}
+                </div>
+
+                <!-- Optional Section: Memorial Installation -->
+                {{#if Memorial Photo URL}}
+                <div class="memorial-installation"
+                    style="margin-top: 60px; padding-top: 40px; border-top: 1px solid #eee;">
+                    <h2 style="font-family: 'Libre Baskerville', serif; font-size: 1.8rem; margin-bottom: 20px;">
+                        Memorial Installation</h2>
+                    <div class="tribute-image-wrapper"
+                        style="box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;">
+                        <img src="{{Memorial Photo URL}}" alt="Memorial stone for {{Pet Name}}"
+                            style="width: 100%; height: auto; display: block;">
+                    </div>
+                </div>
+                {{/if}}
+
+                <!-- Share Buttons -->
+                <div class="share-buttons"
+                    style="margin-top: 50px; text-align: center; border-top: 1px solid #eee; padding-top: 30px;">
+                    <h4 style="font-family: 'Libre Baskerville', serif; margin-bottom: 20px; font-size: 1.2rem;">Share
+                        This Tribute</h4>
+                    <div style="display: flex; gap: 10px; justify-content: center;">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{PAGE_URL}}" target="_blank"
+                            rel="noopener"
+                            style="display: flex; align-items: center; gap: 8px; background: #3b5998; color: white; padding: 10px 24px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: opacity 0.2s;">
+                            <span>Share on Facebook</span>
+                        </a>
+                        <a href="https://pinterest.com/pin/create/button/?url={{PAGE_URL}}&media={{Pet Photo URL}}&description={{Pet Name}}%20Memorial"
+                            target="_blank" rel="noopener"
+                            style="display: flex; align-items: center; gap: 8px; background: #bd081c; color: white; padding: 10px 24px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: opacity 0.2s;">
+                            <span>Pin on Pinterest</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soft CTA -->
+            <div class="tribute-cta"
+                style="margin-top: 80px; text-align: center; background: #f9f9f9; padding: 40px; border-radius: 8px;">
+                <h3 style="margin-top: 0; margin-bottom: 20px; font-family: 'Libre Baskerville', serif;">Honoring {{Pet
+                    Name}}</h3>
+                <a href="../custom-pet-memorial-stones/index.html"
+                    style="display: inline-block; font-weight: bold; color: #2c3e50; text-decoration: none; font-size: 1.1rem; border-bottom: 2px solid #d4af37; padding-bottom: 2px; transition: color 0.3s;">
+                    Create a memorial that honors your pet →
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer (Standardized) -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="brand-main">
+                            <span class="brand-top">MELTON</span>
+                            <span class="brand-bottom">MEMORIALS</span>
+                        </div>
+                        <div class="brand-tagline">Love • Honor • Remembrance</div>
+                    </div>
+                    <p class="footer-description">
+                        Handcrafted pet memorial stones, including granite, cast stone, and natural river rock designs,
+                        crafted for lasting outdoor placement.
+                        Each memorial stone is deeply engraved with care in Alma, Arkansas —
+                        creating a permanent tribute for dogs, cats, and beloved companions.
+                    </p>
+                    <div class="footer-rating">★★★★★ <span>3,800+ Five-Star Reviews from Pet Memorial Families</span>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <a href="../custom-pet-memorial-stones/index.html">Pet Memorial Stones</a>
+                    <a href="../products/granite-pet-memorial-stone/index.html">Granite Pet Memorial Stones</a>
+                    <a href="../products/granite-pet-memorial-stone/create-your-memorial/index.html">Create Your
+                        Memorial</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <a href="../pet-memorial-guides/index.html">Memorial Guides</a>
+                    <a href="../../index.html">Pet Memorial Tributes</a>
+                    <a href="../reviews/index.html">Customer Reviews</a>
+                    <a href="../about/index.html">About Us</a>
+                    <a href="#">FAQ</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p class="footer-contact-info">
+                        <strong>Melton Memorials — Alma, Arkansas</strong><br><br>
+                        <a href="mailto:rodney@meltonmemorials.com"
+                            class="footer-email">rodney@meltonmemorials.com</a><br>
+                        <a href="tel:+14794300716" class="footer-phone">(479) 430-0716</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>© 2026 Melton Memorials. All rights reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

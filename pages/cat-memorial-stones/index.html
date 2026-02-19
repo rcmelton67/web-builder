@@ -10,6 +10,7 @@
     <link rel="canonical" href="https://meltonmemorials.com/pages/cat-memorial-stones/">
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/memorial-theme.css">
+    <link rel="preload" as="image" href="images/cat-memorial-stone-garden.webp">
     <!-- Reviews CSS override for static display if needed -->
     <style>
         .review-card {
@@ -118,6 +119,85 @@
         .cta-btn:hover {
             background: #f0f0f0;
         }
+
+        .cat-image {
+            text-align: center;
+            margin: 40px 0 60px;
+        }
+
+        .cat-image img {
+            max-width: 520px;
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            /* Humanizing AI Image - Subtle Reduction */
+            filter: contrast(0.95) saturate(0.95);
+        }
+
+        .cat-authority {
+            margin: 80px 0;
+            text-align: left;
+            /* Reset alignment for this section */
+        }
+
+        .cat-authority-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .cat-authority-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .cat-authority-image img {
+            width: 100%;
+            max-width: 360px;
+            border-radius: 6px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+            filter: contrast(0.96) saturate(0.92);
+        }
+
+        .cat-authority-content h2 {
+            font-size: 30px;
+            margin-bottom: 16px;
+        }
+
+        .cat-authority-content p {
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .cat-authority-content .trust-strip {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 18px;
+        }
+
+        .cat-cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .cat-authority-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cat-authority-image img {
+                margin: 0 auto;
+            }
+
+            .cat-cta-group {
+                justify-content: center;
+            }
+        }
     </style>
     <script type="application/ld+json">
 {
@@ -172,42 +252,34 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Are these stones safe for outdoor cat graves?",
+          "name": "How long do cat memorial stones last outdoors?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Absolutely. We use only outdoor-rated granite, river rock, and cast stone. They are impervious to moisture and frost, making them perfect for marking a backyard resting place."
+            "text": "Our granite and cast stone memorials are designed for long-term outdoor durability and deep engraving that resists fading, making them perfect for permanent outdoor placement."
           }
         },
         {
           "@type": "Question",
-          "name": "Can I engrave a cat silhouette?",
+          "name": "What size memorial is best for a garden setting?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. We have a wide selection of cat silhouettes, including sitting cats, sleeping cats, and playful poses. You can also upload your own custom design."
+            "text": "Small and medium stones (6-10 inches) are often ideal for garden beds, while larger stones serve as beautiful focal points in dedicated memorial spaces."
           }
         },
         {
           "@type": "Question",
-          "name": "How heavy are the cat memorial stones?",
+          "name": "Can I personalize the engraving with my cat’s name and dates?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Weights vary by size and material. Our river rocks typically weigh 5-15 lbs, while solid granite markers can weigh 15-25 lbs, ensuring they stay in place even in strong winds."
+            "text": "Yes. Custom engraving allows for names, dates, and personalized sentiments to be deeply etched into the stone."
           }
         },
         {
           "@type": "Question",
-          "name": "What is the turnaround time for a cat memorial?",
+          "name": "How long does it take to receive my memorial stone?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Because every stone is custom engraved in our Arkansas studio, production typically takes 7-10 business days before shipping."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you make markers for other small pets?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. While we specialize in dog and cat memorials, we frequently craft stones for rabbits, guinea pigs, and other beloved small companions."
           }
         }
       ]
@@ -232,6 +304,7 @@
                 <a href="../../pages/custom-pet-memorial-stones/index.html">Memorials</a>
                 <a href="../../pages/pet-memorial-guides/index.html">Guides</a>
                 <a href="../../pages/reviews/index.html">Reviews</a>
+                <a href="../memorials/index.html">Tributes</a>
                 <a href="#">About</a>
                 <a href="#">Contact</a>
             </nav>
@@ -247,184 +320,272 @@
     <main class="container">
 
         <section class="hero-section">
-            <h1>Cat Memorial Stones for Garden & Outdoor Tribute</h1>
-            <div class="intro-content">
+            <h1>Cat Memorial Stones for a Peaceful Outdoor Tribute</h1>
+            <p class="lead-text">Handcrafted and deeply engraved memorial stones created to honor your cat with quiet
+                elegance and lasting permanence.</p>
 
-                <p class="lead-text">A quiet engaging presence in the garden, a cat's memory deserves a touch of
-                    permanence.</p>
-                <p>Our collection of <strong>cat memorial stones</strong> is designed to reflect the elegance and spirit
-                    of your feline companion. Crafted from <strong>solid granite</strong> and natural stone, these
-                    markers provide a weatherproof tribute that blends naturally with your landscape.</p>
-                <p>We use <strong>deep engraving</strong> techniques to ensure that your cat's name and epitaph are
-                    permanently etched into the stone. From sleeping cat motifs to simple, elegant text, our <strong>cat
-                        grave markers</strong> are built to withstand the elements year-round.</p>
+            <section class="cat-authority">
+                <div class="cat-authority-grid">
+                    <div class="cat-authority-image">
+                        <img src="images/cat-memorial-stone-garden.webp"
+                            alt="Handcrafted engraved cat memorial stone placed in a peaceful garden setting for lasting outdoor remembrance">
+                    </div>
 
+                    <div class="cat-authority-content">
+                        <div class="trust-strip">
+                            ★★★★★ 3,800+ Five-Star Reviews<br>
+                            Deep Engraving • Outdoor Durable • Crafted in the USA
+                        </div>
+
+                        <h2>Handcrafted Cat Memorial Stones Built to Endure</h2>
+
+                        <p>
+                            Each cat memorial stone is shaped and deeply engraved to create a lasting tribute.
+                            Designed for garden placement and outdoor durability, our memorials honor your cat
+                            with craftsmanship that stands the test of time.
+                        </p>
+
+                        <div class="cat-cta-group">
+                            <a href="../../pages/custom-pet-memorial-stones/index.html" class="btn btn-primary">
+                                Create Your Cat Memorial
+                            </a>
+
+                            <a href="#materials" class="btn btn-secondary">
+                                Explore Materials
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section class="page-section intro-section"
+            style="text-align:center; max-width:800px; margin:0 auto; padding:4rem 0;">
+            <h2>Honoring a Gentle Companion</h2>
+            <p>A cat’s presence is quiet but unforgettable — woven into daily routines, favorite spaces, and familiar
+                corners of home. A memorial stone placed in a garden or resting place offers a lasting tribute that
+                reflects that calm companionship. Each stone is shaped, finished, and engraved with care to endure
+                outdoors for years to come.</p>
+        </section>
+
+        <section class="page-section durability-section"
+            style="text-align:center; max-width:800px; margin:0 auto; padding-bottom:4rem;">
+            <h3>Designed for Outdoor Endurance</h3>
+            <p>Every memorial stone is deeply engraved — not lightly etched — so names and dates remain clear over time.
+                Crafted from durable materials and made for permanent outdoor placement, each piece offers both beauty
+                and strength.</p>
+        </section>
+
+        <section id="materials" class="page-section materials-section">
+            <h2 style="text-align:center;">Choosing the Right Material</h2>
+            <p style="text-align:center; max-width:600px; margin:0 auto 2rem;">The material you choose determines
+                weight, texture, and long-term durability.</p>
+            <div class="materials-grid">
+                <a href="../../pages/products/granite-pet-memorial-stone/index.html" class="material-card">
+                    <h3>Granite Pet Memorial Stones</h3>
+                    <p>Dense, formal, and extremely durable. Ideal for prolonged outdoor placement.</p>
+                    <span style="text-decoration: underline; color: #2c5282; display: block; margin-top: 1rem;">View
+                        Granite Options</span>
+                </a>
+                <a href="../../pages/cast-stone-pet-memorial-stones/index.html" class="material-card">
+                    <h3>Cast Stone Memorials</h3>
+                    <p>Classic look with balanced weight and deep engraving.</p>
+                    <span style="text-decoration: underline; color: #2c5282; display: block; margin-top: 1rem;">View
+                        Cast Stone Options</span>
+                </a>
+                <a href="../../pages/river-rock-pet-memorial-stones/index.html" class="material-card">
+                    <h3>Natural River Rock Memorials</h3>
+                    <p>Organic shape with natural character, well-suited for garden settings.</p>
+                    <span style="text-decoration: underline; color: #2c5282; display: block; margin-top: 1rem;">View
+                        River Rock Options</span>
+                </a>
             </div>
         </section>
 
-        <section class="materials-section">
-            <h2 style="text-align:center;">Materials Available</h2>
-            <div class="materials-grid">
-                <a href="../../pages/products/granite-pet-memorial-stone/index.html" class="material-card">
-                    <h3>Granite</h3>
-                    <p>Standard for durability</p>
-                </a>
-                <a href="../../pages/custom-pet-memorial-stones/index.html" class="material-card">
-                    <h3>River Rock</h3>
-                    <p>Natural & Organic</p>
-                </a>
-                <a href="../../pages/custom-pet-memorial-stones/index.html" class="material-card">
-                    <h3>Cast Stone</h3>
-                    <p>Classic & Smooth</p>
-                </a>
+        <section class="page-section soft-cta" style="text-align:center; padding: 4rem 0; background-color: #f4f4f4;">
+            <div class="container">
+                <h2>Ready to Create a Tribute?</h2>
+                <p style="margin-bottom: 2rem;">Design a personalized memorial stone that reflects your cat’s life and
+                    presence.</p>
+                <a href="../../pages/custom-pet-memorial-stones/index.html" class="btn btn-primary">Create Your Cat
+                    Memorial</a>
             </div>
         </section>
 
         <section class="reviews-section">
-            <h2 style="text-align:center;">Real Customer Reviews</h2>
+            <h2 style="text-align:center; margin-top:4rem;">Real Reviews from Cat Owners</h2>
+            <p style="text-align:center; max-width:700px; margin:0 auto 2rem; color:#666;">Families who have created
+                memorial stones for their cats share their experiences below.</p>
             <!-- START REVIEWS -->
             <div class="review-grid">
-                
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"Great gift and great communication!"</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Lucy</span>
-                    <span style="float:right;">02/14/2026</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"Unlike the memorial stone we got elsewhere years ago for our cat, this stone is real! I am so impressed with the quality that I'm considering redoing our cat's stone with this vendor. Our beloved pets deserve the best. I can't wait for the ten tons of snow to melt so that we can put this stone in a spot of honor in our memorial garden."</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Liz</span>
-                    <span style="float:right;">02/03/2026</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"Very communicative and shipping was quick. Great product!"</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Andrea</span>
-                    <span style="float:right;">01/10/2026</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"The memorial stone came out beautiful & was exactly what I had requested.  It was a gift to my sister & her husband for their dog who had recently died.  They both loved the stone & will display it in their backyard.  Also, the seller was very easy to communicate with & very accommodating.  I would definitely order from this seller again."</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Carol</span>
-                    <span style="float:right;">01/08/2026</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"Fast shipping, great design communication."</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Mike</span>
-                    <span style="float:right;">12/31/2025</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"Although the reason to purchase from Melton Memorials is a sad one, they always manage to make a beautiful piece of art in remembrance of our beloved fury family members.  I have purchased from them several times and communication is always wonderful, they ensure the design is what you want before making it and the end result is a memory for a lifetime. Highly recommend!"</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Melissa</span>
-                    <span style="float:right;">12/13/2025</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"This was perfect! Exactly what I wanted and hoped for. I highly recommend! 
-A proof was sent to me ahead of time for approval, and thank goodness because I had put the wrong date! 
-Very professional communication and the stone is heavy and high quality. 
-Thank you!"</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Drea</span>
-                    <span style="float:right;">12/06/2025</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"Second purchase and again extremely well made, Rodney sent me a “copy proof” before doing it, top quality. I have a garden plot at the Community garden Fort Mason in San Francisco and decided to dedicate it to my loving parents and pets sharing their lives and part of mine before moving to America. 
-Extremely well packed. Extremely pleased.
-👏👏🙏🙏👍👍"</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- dominique</span>
-                    <span style="float:right;">12/06/2025</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"Perfect memorial for our cat 🤍"</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Inactive Etsy Member</span>
-                    <span style="float:right;">11/18/2025</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"Incredibly pleased overall, such prompt communication and excellent craftsmanship. The memorial stone is just what my family was looking for to honor our sweet boy. Thank you!"</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Teresa</span>
-                    <span style="float:right;">11/11/2025</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"The pet memorial rock is beautiful and exactly what I was looking for. It came as described and the seller was easy to communicate with. I would buy from this shop again!"</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- April</span>
-                    <span style="float:right;">11/02/2025</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"This memorial stone was exactly what I was looking for. I wanted real stone and quality. Seller communicated quickly and gave me a preview to make sure I liked the stone.  Very Thankful to have found this seller."</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Rebecca</span>
-                    <span style="float:right;">10/25/2025</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"Came exactly as ordered. Just the right size and a sturdy weight. The communication to confirm the right inscription was thoughtful and appreciated. Thank you so much for giving our Buddy the resting place he deserves."</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Ashley</span>
-                    <span style="float:right;">10/04/2025</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"Great stone to memorialize our kitty. Appreciated getting the preview image."</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- James</span>
-                    <span style="float:right;">09/25/2025</span>
-                </div>
-            </article>
-        
-            <article class="review-card">
-                <div class="stars">★★★★★</div>
-                <p style="margin: 0.5rem 0; font-style:italic;">"Such a beautiful tribute to our sweet Freya. The stone is gorgeous and exactly what we wanted. Great communication from Rodney to make sure it was perfect. Definitely recommend!"</p>
-                <div style="font-size:0.9rem; color:#666;">
-                    <span>- Tracy</span>
-                    <span style="float:right;">09/22/2025</span>
-                </div>
-            </article>
-        
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"Unlike the memorial stone we got elsewhere years
+                        ago for our cat, this stone is real! I am so impressed with the quality that I'm considering
+                        redoing our cat's stone with this vendor. Our beloved pets deserve the best. I can't wait for
+                        the ten tons of snow to melt so that we can put this stone in a spot of honor in our memorial
+                        garden."</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Liz</span>
+                        <span style="float:right;">02/03/2026</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"The stone I ordered turned out absolutely
+                        beautiful, and exactly as described. I accidentally ordered the smallest stone at first, and the
+                        seller helped me upgrade my purchase to a 4x7 stone. They also let me add a black cat to mine,
+                        and centered everything exactly the way I requested. They were truly easy and great to work
+                        with, and mine looks perfect in my garden!"</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- robertsemily2</span>
+                        <span style="float:right;">12/28/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"The stone I ordered turned out absolutely
+                        beautiful, and exactly as described. They also send you a proof of what it will look like before
+                        engraving it, which was super helpful for me. I accidentally ordered the smallest stone at
+                        first, which I noticed after receiving my proof, and the seller helped me upgrade my purchase to
+                        a 7x4 stone. They also let me add a black cat to mine, and centered everything exactly the way I
+                        requested. They were truly easy and great to work with, and mine looks perfect in my garden!"
+                    </p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- robertsemily2</span>
+                        <span style="float:right;">12/28/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"Perfect memorial for our cat 🤍"</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Inactive Etsy Member</span>
+                        <span style="float:right;">11/18/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"Great stone to memorialize our kitty. Appreciated
+                        getting the preview image."</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- James</span>
+                        <span style="float:right;">09/25/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"I bought this for a friend when her cat passed
+                        away. Item shipped fast and was just as described. Would recommend."</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Nikki</span>
+                        <span style="float:right;">09/14/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"This heart stone is so cute for our kitty who
+                        passed away. We will be ordering more, for our pet rememberance garden."</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Sandra</span>
+                        <span style="float:right;">09/10/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"Absolutely perfect. Very sturdy and well made, an
+                        amazing way to remember my little kitty."</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Olivia Tosolt</span>
+                        <span style="float:right;">09/06/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"This was a gift to mark the grave of Jack, a
+                        wonderful cat who belonged to our son and his family. Everyone is very pleased with this nicely
+                        crafted grave marker."</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Carolyn</span>
+                        <span style="float:right;">08/31/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"A beautiful engraved stone heart. I gifted it as a
+                        memento to my sister who was deeply touched after her cat suddenly died. VERY kind and
+                        responsive seller and I so appreciate the care and speed that went into this gift."</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Robyn</span>
+                        <span style="float:right;">08/26/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"A nice memorial to mark the burried ashes of our
+                        sweet kitty."</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Judith</span>
+                        <span style="float:right;">08/14/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"I received my order for the memorial stone for our
+                        cat Kitsy Lou. What a beautiful piece of workmanship! Came within the time frame mentioned,
+                        beautiful granite stone and engraving perfect. Thank you so much. It will be a lovely reminder
+                        of her every time we look at her grave. 😺"</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Judith</span>
+                        <span style="float:right;">07/27/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"I really couldn't be more satisfied with our
+                        purchase. It's a beautiful piece to remember our sweet family kitty who recently passed away. It
+                        will be a feature in the little memorial garden we're planning on putting on her burial site."
+                    </p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Amanda</span>
+                        <span style="float:right;">07/16/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"A beautiful tribute to my friend’s beloved kitty.
+                        She was deeply moved by the piece."</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Liz</span>
+                        <span style="float:right;">07/02/2025</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p style="margin: 0.5rem 0; font-style:italic;">"Fantastic way to memorialize my beloved Lily (cat)!
+                        Absolutely LOVE this and was able to create a small garden using this beautiful heart stone!
+                        Thank you so much for such wonderful work!"</p>
+                    <div style="font-size:0.9rem; color:#666;">
+                        <span>- Anna</span>
+                        <span style="float:right;">06/28/2025</span>
+                    </div>
+                </article>
+
             </div>
             <!-- END REVIEWS -->
             <div style="text-align:center; margin-top:2rem;">
@@ -436,57 +597,56 @@ Extremely well packed. Extremely pleased.
             <h2 style="text-align:center; margin-top:4rem; margin-bottom:2rem;">Frequently Asked Questions</h2>
 
             <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <div class="faq-question" itemprop="name">Are these stones safe for outdoor cat graves?</div>
+                <div class="faq-question" itemprop="name">How long do cat memorial stones last outdoors?</div>
                 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">Absolutely. We use only outdoor-rated granite, river rock, and cast stone. They
-                        are impervious to moisture and frost, making them perfect for marking a backyard resting place.
-                    </div>
+                    <div itemprop="text">Our granite and cast stone memorials are designed for long-term outdoor
+                        durability and deep engraving that resists fading, making them perfect for permanent outdoor
+                        placement.</div>
                 </div>
             </div>
 
             <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <div class="faq-question" itemprop="name">Can I engrave a cat silhouette?</div>
+                <div class="faq-question" itemprop="name">What size memorial is best for a garden setting?</div>
                 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">Yes. We have a wide selection of cat silhouettes, including sitting cats,
-                        sleeping cats, and playful poses. You can also upload your own custom design.</div>
+                    <div itemprop="text">Small and medium stones (6-10 inches) are often ideal for garden beds, while
+                        larger stones serve as beautiful focal points in dedicated memorial spaces.</div>
                 </div>
             </div>
 
             <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <div class="faq-question" itemprop="name">How heavy are the cat memorial stones?</div>
+                <div class="faq-question" itemprop="name">Can I personalize the engraving with my cat’s name and dates?
+                </div>
                 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">Weights vary by size and material. Our river rocks typically weigh 5-15 lbs,
-                        while solid granite markers can weigh 15-25 lbs, ensuring they stay in place even in strong
-                        winds.</div>
+                    <div itemprop="text">Yes. Custom engraving allows for names, dates, and personalized sentiments to
+                        be deeply etched into the stone.</div>
                 </div>
             </div>
 
             <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <div class="faq-question" itemprop="name">What is the turnaround time for a cat memorial?</div>
+                <div class="faq-question" itemprop="name">How long does it take to receive my memorial stone?</div>
                 <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                     <div itemprop="text">Because every stone is custom engraved in our Arkansas studio, production
                         typically takes 7-10 business days before shipping.</div>
                 </div>
             </div>
 
-            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                <div class="faq-question" itemprop="name">Do you make markers for other small pets?</div>
-                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                    <div itemprop="text">Yes. While we specialize in dog and cat memorials, we frequently craft stones
-                        for rabbits, guinea pigs, and other beloved small companions.</div>
-                </div>
-            </div>
-
         </section>
 
         <div class="cta-box">
-            <h2>Ready to Create a Lasting Tribute?</h2>
-            <p>Design your custom pet memorial stone today.</p>
-            <a href="../../pages/products/granite-pet-memorial-stone/create-your-memorial/index.html"
-                class="cta-btn">Create Your Memorial</a>
+            <h2>Create a Lasting Tribute</h2>
+            <p>Craft a memorial that honors your cat with quiet elegance and permanence.</p>
+            <a href="../../pages/custom-pet-memorial-stones/index.html" class="cta-btn">Create Your Cat Memorial</a>
         </div>
 
     </main>
+
+    <!-- TRIBUTE DIVIDER -->
+    <div style="text-align: center; padding: 20px; background: #fff; border-top: 1px solid #eee;">
+        <a href="../memorials/index.html?type=cat"
+            style="font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1.1rem; color: #555; text-decoration: none; border-bottom: 1px solid #d4af37;">
+            Read real tributes from families who honored their cats →
+        </a>
+    </div>
 
     <section class="related-silos subtle-silo"
         style="background-color: #f9f9f9; padding: 2rem 0; text-align: center; border-top: 1px solid #eee; margin-top: 2rem;">
@@ -537,6 +697,7 @@ Extremely well packed. Extremely pleased.
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <a href="../../pages/pet-memorial-guides/index.html">Memorial Guides</a>
+                    <a href="../memorials/index.html">Pet Memorial Tributes</a>
                     <a href="../../pages/reviews/index.html">Customer Reviews</a>
                     <a href="#">About Us</a>
                     <a href="#">FAQ</a>
