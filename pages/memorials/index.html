@@ -13,67 +13,130 @@
     <!-- Fonts & Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/styles.css?v=hardreset2">
-    <link rel="stylesheet" href="../../assets/css/memorial-theme.css">
+    <link rel="stylesheet" href="../../assets/css/memorial-theme.css?v=2">
 </head>
 
 <body>
     <!-- Header (Standardized) -->
     <header class="site-header">
-<div class="nav-container">
-        <div class="logo">
-            <div class="brand">
-                <a href="../../pages/home/index.html">
-                    <div class="brand-main">
-                        <span class="brand-top">MELTON</span>
-                        <span class="brand-bottom">MEMORIALS</span>
-                    </div>
-                    <div class="brand-tagline">
-                        Love • Honor • Remembrance
-                    </div>
-                </a>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="brand">
+                    <a href="../../pages/home/index.html">
+                        <div class="brand-main">
+                            <span class="brand-top">MELTON</span>
+                            <span class="brand-bottom">MEMORIALS</span>
+                        </div>
+                        <div class="brand-tagline">
+                            Love • Honor • Remembrance
+                        </div>
+                    </a>
+                </div>
             </div>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Memorials</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../../pages/products/granite-pet-memorial-stone/index.html">Granite
+                                    Memorials</a></li>
+                            <li><a href="../../pages/products/cast-stone-pet-memorials/index.html">Cast Stone
+                                    Memorials</a></li>
+                            <li><a href="../../pages/products/river-rock-pet-memorial-stones/index.html">River Rock
+                                    Memorials</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="../../pages/pet-memorial-guides/index.html">Guides</a></li>
+                    <li><a href="../../pages/reviews/index.html">Reviews</a></li>
+                    <li><a href="../../pages/memorials/index.html">Tributes</a></li>
+                    <li><a href="../../pages/about/index.html">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <nav class="main-nav">
-            <ul class="nav-list">
-
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">Memorials</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../../pages/products/granite-pet-memorial-stone/index.html">Granite
-                                Memorials</a></li>
-                        <li><a href="../../pages/products/cast-stone-pet-memorials/index.html">Cast Stone
-                                Memorials</a></li>
-                        <li><a href="../../pages/products/river-rock-pet-memorial-stones/index.html">River Rock
-                                Memorials</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="../../pages/pet-memorial-guides/index.html">Guides</a></li>
-                <li><a href="../../pages/reviews/index.html">Reviews</a></li>
-                <li><a href="../../pages/memorials/index.html">Tributes</a></li>
-                <li><a href="../../pages/about/index.html">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-
-            </ul>
-        </nav>
-    </div>
-</header>
-
-    <main class="memorials-hub" style="padding-top: 150px; padding-bottom: 80px;">
+    <main class="memorials-hub">
         <div class="container text-center">
 
-            <section class="memorials-hero" style="text-align: center; margin-bottom: 60px;">
-                <h1>Pet Memorial Tributes</h1>
-                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; line-height: 1.6;">
-                    Each memorial tells a story of love, loyalty, and companionship.<br>
-                    We are honored to share these tributes to beloved pets whose memories live on.
+            <section class="memorials-hero">
+                <div class="hero-header-row">
+                    <h1>Pet Memorial Tributes</h1>
+
+                    <!-- Live Search Input -->
+                    <div class="tribute-search-wrapper">
+                        <input type="text" id="tributeSearch" placeholder="Search tributes..."
+                            aria-label="Search tributes">
+                    </div>
+                </div>
+                <p>
+                    A public archive honoring beloved companions and the memories they leave behind.
                 </p>
             </section>
 
-            <!-- Tribute Grid Placeholder -->
-            <div class="tribute-grid" style="min-height: 200px; margin-bottom: 60px;">
-                <!-- This will later be auto-populated. -->
+            <!-- Tribute Grid -->
+            <div class="tribute-grid">
+
+                <!-- Sample Card 1 -->
+                <div class="tribute-card" data-name="bella" data-breed="golden retriever" data-years="2012 2024"
+                    data-content="bella shared 12 beautiful years of unconditional love...">
+                    <div class="tribute-image">
+                        <img src="../../assets/images/dog-memorial-forest.webp"
+                            alt="Bella Golden Retriever memorial tribute photo">
+                    </div>
+
+                    <div class="tribute-content">
+                        <h2>Bella</h2>
+                        <p class="breed">Golden Retriever</p>
+                        <p class="years">2012 – 2024</p>
+                        <p class="excerpt">Bella shared 12 beautiful years of unconditional love...</p>
+                        <a href="#" class="read-more">
+                            View Full Tribute →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sample Card 2 -->
+                <div class="tribute-card" data-name="luna" data-breed="siamese" data-years="2015 2023"
+                    data-content="our graceful luna, who ruled the house with a gentle paw...">
+                    <div class="tribute-image">
+                        <img src="../../assets/images/cat-memorial.webp" alt="Luna Siamese Cat memorial tribute photo">
+                    </div>
+
+                    <div class="tribute-content">
+                        <h2>Luna</h2>
+                        <p class="breed">Siamese</p>
+                        <p class="years">2015 – 2023</p>
+                        <p class="excerpt">Our graceful Luna, who ruled the house with a gentle paw...</p>
+                        <a href="#" class="read-more">
+                            View Full Tribute →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sample Card 3 -->
+                <div class="tribute-card" data-name="max" data-breed="german shepherd" data-years="2010 2024"
+                    data-content="a loyal protector and best friend until the very end...">
+                    <div class="tribute-image">
+                        <img src="../../assets/images/memorial-hero.jpg"
+                            alt="Max German Shepherd memorial tribute photo">
+                    </div>
+
+                    <div class="tribute-content">
+                        <h2>Max</h2>
+                        <p class="breed">German Shepherd</p>
+                        <p class="years">2010 – 2024</p>
+                        <p class="excerpt">A loyal protector and best friend until the very end...</p>
+                        <a href="#" class="read-more">
+                            View Full Tribute →
+                        </a>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Soft CTA Block -->
@@ -89,94 +152,118 @@
         </div>
     </main>
 
-    <!-- Footer (Standardized) -->
-    <footer class="site-footer">
-<div class="container footer-content">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <div class="brand-main">
-                        <span class="brand-top">MELTON</span>
-                        <span class="brand-bottom">MEMORIALS</span>
-                    </div>
-                    <div class="brand-tagline">Love • Honor • Remembrance</div>
-                </div>
-                <p class="footer-description">
-                    Handcrafted pet memorial stones, including granite, cast stone, and natural river rock designs,
-                    crafted for lasting outdoor placement.
-                    Each memorial stone is deeply engraved with care in Alma, Arkansas —
-                    creating a permanent tribute for dogs, cats, and beloved companions.
-                </p>
-                <div class="footer-rating">★★★★★ <span>3,800+ Five-Star Reviews from Pet Memorial Families</span></div>
-            </div>
-
-            <div class="footer-column">
-                <h3>Shop</h3>
-                <a href="../../pages/products/granite-pet-memorial-stone/index.html">Granite Memorials</a>
-                <a href="../../pages/products/cast-stone-pet-memorials/index.html">Cast Stone Memorials</a>
-                <a href="../../pages/products/river-rock-pet-memorial-stones/index.html">River Rock Memorials</a>
-                <a href="../../pages/products/heart-shaped-pet-memorial-stone/index.html">Heart Shaped</a>
-                <a href="../../pages/products/bone-shaped-pet-memorial-stone/index.html">Bone Shaped</a>
-                <a href="../../pages/products/cat-shaped-pet-memorial-stone/index.html">Cat Shaped</a>
-            </div>
-
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <a href="../../pages/pet-memorial-guides/index.html">Memorial Guides</a>
-                <a href="../../pages/memorials/index.html">Pet Memorial Tributes</a>
-                <a href="../../pages/reviews/index.html">Customer Reviews</a>
-                <a href="../../pages/about/index.html">About Us</a>
-                <a href="#contact">FAQ</a>
-            </div>
-
-            <div class="footer-column">
-                <h3>Contact</h3>
-                <p class="footer-contact-info">
-                    <strong>Melton Memorials — Alma, Arkansas</strong><br><br>
-                    <a href="mailto:rodney@meltonmemorials.com" class="footer-email">rodney@meltonmemorials.com</a><br>
-                    <a href="tel:+14794300716" class="footer-phone">(479) 430-0716</a>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="footer-bottom-content">
-                <p>© 2026 Melton Memorials. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <span>•</span>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-                toggle.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation(); // Prevent immediate closing
+        document.getElementById("tributeSearch").addEventListener("input", function () {
+            const query = this.value.toLowerCase().trim();
+            const cards = document.querySelectorAll(".tribute-card");
 
-                    const menu = this.nextElementSibling;
-                    if (menu) {
-                        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-                    }
-                });
-            });
+            cards.forEach(card => {
+                const searchableText = (
+                    card.dataset.name + " " +
+                    card.dataset.breed + " " +
+                    card.dataset.years + " " +
+                    card.dataset.content
+                ).toLowerCase();
 
-            document.addEventListener('click', function (e) {
-                if (!e.target.closest('.dropdown')) {
-                    document.querySelectorAll('.dropdown-menu').forEach(m => {
-                        m.style.display = 'none';
-                    });
+                if (searchableText.includes(query)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
                 }
             });
         });
     </script>
-</footer>
+
+    <!-- Footer (Standardized) -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="brand-main">
+                            <span class="brand-top">MELTON</span>
+                            <span class="brand-bottom">MEMORIALS</span>
+                        </div>
+                        <div class="brand-tagline">Love • Honor • Remembrance</div>
+                    </div>
+                    <p class="footer-description">
+                        Handcrafted pet memorial stones, including granite, cast stone, and natural river rock designs,
+                        crafted for lasting outdoor placement.
+                        Each memorial stone is deeply engraved with care in Alma, Arkansas —
+                        creating a permanent tribute for dogs, cats, and beloved companions.
+                    </p>
+                    <div class="footer-rating">★★★★★ <span>3,800+ Five-Star Reviews from Pet Memorial Families</span>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <a href="../../pages/products/granite-pet-memorial-stone/index.html">Granite Memorials</a>
+                    <a href="../../pages/products/cast-stone-pet-memorials/index.html">Cast Stone Memorials</a>
+                    <a href="../../pages/products/river-rock-pet-memorial-stones/index.html">River Rock Memorials</a>
+                    <a href="../../pages/products/heart-shaped-pet-memorial-stone/index.html">Heart Shaped</a>
+                    <a href="../../pages/products/bone-shaped-pet-memorial-stone/index.html">Bone Shaped</a>
+                    <a href="../../pages/products/cat-shaped-pet-memorial-stone/index.html">Cat Shaped</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <a href="../../pages/pet-memorial-guides/index.html">Memorial Guides</a>
+                    <a href="../../pages/memorials/index.html">Pet Memorial Tributes</a>
+                    <a href="../../pages/reviews/index.html">Customer Reviews</a>
+                    <a href="../../pages/about/index.html">About Us</a>
+                    <a href="#contact">FAQ</a>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p class="footer-contact-info">
+                        <strong>Melton Memorials — Alma, Arkansas</strong><br><br>
+                        <a href="mailto:rodney@meltonmemorials.com"
+                            class="footer-email">rodney@meltonmemorials.com</a><br>
+                        <a href="tel:+14794300716" class="footer-phone">(479) 430-0716</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>© 2026 Melton Memorials. All rights reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                    toggle.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation(); // Prevent immediate closing
+
+                        const menu = this.nextElementSibling;
+                        if (menu) {
+                            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+                        }
+                    });
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!e.target.closest('.dropdown')) {
+                        document.querySelectorAll('.dropdown-menu').forEach(m => {
+                            m.style.display = 'none';
+                        });
+                    }
+                });
+            });
+        </script>
+    </footer>
 
     <style>
         h1 {

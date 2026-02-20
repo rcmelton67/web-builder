@@ -12,6 +12,15 @@
   --space-xl: 80px;
 }
 
+/* ─── Memorials Hub (Archive) ──────────── */
+.memorials-hub {
+  background-color: #f7f7f6;
+  padding-top: 40px;
+  /* Reduced to shift everything up */
+  padding-bottom: 80px;
+  min-height: 100vh;
+}
+
 /* ─── Dark Brand Band ─────────────────────
    Visual continuation from site header.
    Header (position: absolute) overlays this.
@@ -134,4 +143,165 @@
   .page-container {
     padding: 0 5%;
   }
+}
+
+/* ─── Tribute Live Search ─────────────────
+   Client-side filtering for tribute archive.
+   ───────────────────────────────────────── */
+
+
+/* ─── Hero & Search Layout ──────────────── */
+.hero-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.memorials-hero {
+  text-align: left;
+  padding: 1.5rem 0 2rem 0;
+  /* Reduced top padding */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.memorials-hero h1 {
+  margin-bottom: 0;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.memorials-hero p {
+  text-align: left;
+  margin: 0;
+  max-width: 800px;
+}
+
+.tribute-search-wrapper {
+  margin: 0;
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+#tributeSearch {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  transition: border 0.2s ease;
+}
+
+#tributeSearch:focus {
+  outline: none;
+  border-color: #999;
+}
+
+/* ─── Mobile Adjustments ───────────────── */
+@media (max-width: 768px) {
+  .hero-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .tribute-search-wrapper {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* ─── Tribute Grid & Cards ───────────────
+   Grid layout for the memorial tributes page.
+   ───────────────────────────────────────── */
+.tribute-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 0 0 60px 0;
+  margin-top: 4rem;
+  /* Move cards down */
+}
+
+.tribute-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* Ensure clicking works if we use a pseudo-element link later, though explicit link is better */
+}
+
+.tribute-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tribute-image {
+  width: 100%;
+  position: relative;
+}
+
+.tribute-image img {
+  width: 100%;
+  aspect-ratio: 4 / 4.5;
+  object-fit: cover;
+  display: block;
+}
+
+.tribute-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.tribute-content h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.25rem;
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+}
+
+.tribute-content .breed {
+  font-weight: 500;
+  color: #777;
+  margin: 0 0 5px 0;
+  font-size: 0.9rem;
+}
+
+.tribute-content .years {
+  font-size: 0.85rem;
+  color: #999;
+  margin: 0 0 15px 0;
+  font-style: italic;
+}
+
+.tribute-content .excerpt {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+.tribute-content .read-more {
+  display: inline-block;
+  font-weight: 700;
+  color: #2c3e50;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+  margin-top: auto;
+}
+
+.tribute-content .read-more:hover {
+  color: #d4af37;
 }

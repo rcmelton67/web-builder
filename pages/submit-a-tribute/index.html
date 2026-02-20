@@ -13,46 +13,46 @@
 
 <body>
     <header class="site-header">
-<div class="nav-container">
-        <div class="logo">
-            <div class="brand">
-                <a href="../../pages/home/index.html">
-                    <div class="brand-main">
-                        <span class="brand-top">MELTON</span>
-                        <span class="brand-bottom">MEMORIALS</span>
-                    </div>
-                    <div class="brand-tagline">
-                        Love • Honor • Remembrance
-                    </div>
-                </a>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="brand">
+                    <a href="../../pages/home/index.html">
+                        <div class="brand-main">
+                            <span class="brand-top">MELTON</span>
+                            <span class="brand-bottom">MEMORIALS</span>
+                        </div>
+                        <div class="brand-tagline">
+                            Love • Honor • Remembrance
+                        </div>
+                    </a>
+                </div>
             </div>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Memorials</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../../pages/products/granite-pet-memorial-stone/index.html">Granite
+                                    Memorials</a></li>
+                            <li><a href="../../pages/products/cast-stone-pet-memorials/index.html">Cast Stone
+                                    Memorials</a></li>
+                            <li><a href="../../pages/products/river-rock-pet-memorial-stones/index.html">River Rock
+                                    Memorials</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="../../pages/pet-memorial-guides/index.html">Guides</a></li>
+                    <li><a href="../../pages/reviews/index.html">Reviews</a></li>
+                    <li><a href="../../pages/memorials/index.html">Tributes</a></li>
+                    <li><a href="../../pages/about/index.html">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+            </nav>
         </div>
-
-        <nav class="main-nav">
-            <ul class="nav-list">
-
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">Memorials</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../../pages/products/granite-pet-memorial-stone/index.html">Granite
-                                Memorials</a></li>
-                        <li><a href="../../pages/products/cast-stone-pet-memorials/index.html">Cast Stone
-                                Memorials</a></li>
-                        <li><a href="../../pages/products/river-rock-pet-memorial-stones/index.html">River Rock
-                                Memorials</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="../../pages/pet-memorial-guides/index.html">Guides</a></li>
-                <li><a href="../../pages/reviews/index.html">Reviews</a></li>
-                <li><a href="../../pages/memorials/index.html">Tributes</a></li>
-                <li><a href="../../pages/about/index.html">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-
-            </ul>
-        </nav>
-    </div>
-</header>
+    </header>
 
     <main style="padding-top: 150px; padding-bottom: 80px;">
         <div class="container" style="max-width: 800px;">
@@ -88,7 +88,7 @@
                         </div>
                         <div class="form-group half">
                             <label for="breed">Breed</label>
-                            <input type="text" id="breed" name="breed">
+                            <input type="text" id="breed" name="breed" placeholder="e.g. Labrador">
                         </div>
                     </div>
 
@@ -98,11 +98,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tributeStory">Tribute Story <span class="required">*</span></label>
-                        <textarea id="tributeStory" name="tributeStory" rows="6" required minlength="100"
-                            placeholder="Share your favorite memory (minimum 150 words recommended)..."></textarea>
-                        <small style="color: #666; display: block; margin-top: 5px;">Please share a meaningful story
-                            about your pet.</small>
+                        <label for="tributeStory">Tribute Message <span class="required">*</span></label>
+                        <textarea id="tributeStory" name="tributeStory" rows="6" required
+                            placeholder="Share your favorite memory..."></textarea>
                     </div>
 
                     <div class="form-group">
@@ -111,32 +109,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="memorialPhoto">Upload Memorial Stone Photo</label>
-                        <input type="file" id="memorialPhoto" name="memorialPhoto" accept="image/*">
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group half">
-                            <label for="orderNumber">Order Number <span class="required">*</span></label>
-                            <input type="text" id="orderNumber" name="orderNumber" required
-                                placeholder="From your Melton Memorials order">
-                        </div>
-                        <div class="form-group half">
-                            <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent">I confirm this tribute is associated with a memorial created by Melton
-                            Memorials and grant permission for it to be displayed publicly after review.</label>
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <small style="color: #666; display: block; margin-top: 5px;">Your email is for internal use only
+                            and will not be published.</small>
                     </div>
 
                     <div style="text-align: center; margin-top: 30px;">
                         <button type="submit" class="btn btn-primary"
-                            style="padding: 14px 40px; font-size: 1.1rem; cursor: pointer;">Submit Tribute for
-                            Review</button>
+                            style="padding: 14px 40px; font-size: 1.1rem; cursor: pointer;">Submit Tribute</button>
+                        <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">All tributes are reviewed before
+                            publication.</p>
                     </div>
                 </form>
                 <div id="submitMessage"
@@ -146,92 +129,94 @@
     </main>
 
     <footer class="site-footer">
-<div class="container footer-content">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <div class="brand-main">
-                        <span class="brand-top">MELTON</span>
-                        <span class="brand-bottom">MEMORIALS</span>
+        <div class="container footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="brand-main">
+                            <span class="brand-top">MELTON</span>
+                            <span class="brand-bottom">MEMORIALS</span>
+                        </div>
+                        <div class="brand-tagline">Love • Honor • Remembrance</div>
                     </div>
-                    <div class="brand-tagline">Love • Honor • Remembrance</div>
+                    <p class="footer-description">
+                        Handcrafted pet memorial stones, including granite, cast stone, and natural river rock designs,
+                        crafted for lasting outdoor placement.
+                        Each memorial stone is deeply engraved with care in Alma, Arkansas —
+                        creating a permanent tribute for dogs, cats, and beloved companions.
+                    </p>
+                    <div class="footer-rating">★★★★★ <span>3,800+ Five-Star Reviews from Pet Memorial Families</span>
+                    </div>
                 </div>
-                <p class="footer-description">
-                    Handcrafted pet memorial stones, including granite, cast stone, and natural river rock designs,
-                    crafted for lasting outdoor placement.
-                    Each memorial stone is deeply engraved with care in Alma, Arkansas —
-                    creating a permanent tribute for dogs, cats, and beloved companions.
-                </p>
-                <div class="footer-rating">★★★★★ <span>3,800+ Five-Star Reviews from Pet Memorial Families</span></div>
-            </div>
 
-            <div class="footer-column">
-                <h3>Shop</h3>
-                <a href="../../pages/products/granite-pet-memorial-stone/index.html">Granite Memorials</a>
-                <a href="../../pages/products/cast-stone-pet-memorials/index.html">Cast Stone Memorials</a>
-                <a href="../../pages/products/river-rock-pet-memorial-stones/index.html">River Rock Memorials</a>
-                <a href="../../pages/products/heart-shaped-pet-memorial-stone/index.html">Heart Shaped</a>
-                <a href="../../pages/products/bone-shaped-pet-memorial-stone/index.html">Bone Shaped</a>
-                <a href="../../pages/products/cat-shaped-pet-memorial-stone/index.html">Cat Shaped</a>
-            </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <a href="../../pages/products/granite-pet-memorial-stone/index.html">Granite Memorials</a>
+                    <a href="../../pages/products/cast-stone-pet-memorials/index.html">Cast Stone Memorials</a>
+                    <a href="../../pages/products/river-rock-pet-memorial-stones/index.html">River Rock Memorials</a>
+                    <a href="../../pages/products/heart-shaped-pet-memorial-stone/index.html">Heart Shaped</a>
+                    <a href="../../pages/products/bone-shaped-pet-memorial-stone/index.html">Bone Shaped</a>
+                    <a href="../../pages/products/cat-shaped-pet-memorial-stone/index.html">Cat Shaped</a>
+                </div>
 
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <a href="../../pages/pet-memorial-guides/index.html">Memorial Guides</a>
-                <a href="../../pages/memorials/index.html">Pet Memorial Tributes</a>
-                <a href="../../pages/reviews/index.html">Customer Reviews</a>
-                <a href="../../pages/about/index.html">About Us</a>
-                <a href="#contact">FAQ</a>
-            </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <a href="../../pages/pet-memorial-guides/index.html">Memorial Guides</a>
+                    <a href="../../pages/memorials/index.html">Pet Memorial Tributes</a>
+                    <a href="../../pages/reviews/index.html">Customer Reviews</a>
+                    <a href="../../pages/about/index.html">About Us</a>
+                    <a href="#contact">FAQ</a>
+                </div>
 
-            <div class="footer-column">
-                <h3>Contact</h3>
-                <p class="footer-contact-info">
-                    <strong>Melton Memorials — Alma, Arkansas</strong><br><br>
-                    <a href="mailto:rodney@meltonmemorials.com" class="footer-email">rodney@meltonmemorials.com</a><br>
-                    <a href="tel:+14794300716" class="footer-phone">(479) 430-0716</a>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="footer-bottom-content">
-                <p>© 2026 Melton Memorials. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <span>•</span>
-                    <a href="#">Terms of Service</a>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p class="footer-contact-info">
+                        <strong>Melton Memorials — Alma, Arkansas</strong><br><br>
+                        <a href="mailto:rodney@meltonmemorials.com"
+                            class="footer-email">rodney@meltonmemorials.com</a><br>
+                        <a href="tel:+14794300716" class="footer-phone">(479) 430-0716</a>
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-                toggle.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation(); // Prevent immediate closing
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>© 2026 Melton Memorials. All rights reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacy Policy</a>
+                        <span>•</span>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    const menu = this.nextElementSibling;
-                    if (menu) {
-                        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                    toggle.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation(); // Prevent immediate closing
+
+                        const menu = this.nextElementSibling;
+                        if (menu) {
+                            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+                        }
+                    });
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!e.target.closest('.dropdown')) {
+                        document.querySelectorAll('.dropdown-menu').forEach(m => {
+                            m.style.display = 'none';
+                        });
                     }
                 });
             });
-
-            document.addEventListener('click', function (e) {
-                if (!e.target.closest('.dropdown')) {
-                    document.querySelectorAll('.dropdown-menu').forEach(m => {
-                        m.style.display = 'none';
-                    });
-                }
-            });
-        });
-    </script>
-</footer>
+        </script>
+    </footer>
 
     <style>
         .form-group {
@@ -348,6 +333,12 @@
                         object[key] = value;
                     }
                 });
+
+                // Add default status
+                object['publish_status'] = 'pending';
+                // Add marketing and internal flags
+                object['marketing_status'] = 'quiet';
+                object['internal_flags'] = ['tribute_donor', 'future_followup'];
 
                 const response = await fetch('/api/submit-tribute', {
                     method: 'POST',
