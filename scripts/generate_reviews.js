@@ -120,7 +120,7 @@ const templatePage2 = `<!DOCTYPE html>
     <link rel="canonical" href="https://meltonmemorials.com/reviews/page/{{PAGE_NUM}}/">
     <link rel="stylesheet" href="../../../../assets/css/styles.css">
     <link rel="stylesheet" href="../../../../assets/css/memorial-theme.css">
-    <script src="../../../../assets/js/reviews-data.js"></script>
+    <script src="../../../../assets/js/reviews-data.js?v=2"></script>
 </head>
 <body>
     <header class="site-header">
@@ -191,7 +191,7 @@ const templatePage2 = `<!DOCTYPE html>
                         Each memorial stone is deeply engraved with care in Alma, Arkansas —
                         creating a permanent tribute for dogs, cats, and beloved companions.
                     </p>
-                    <div class="footer-rating">★★★★★ <span>3,800+ Five-Star Reviews from Pet Memorial Families</span>
+                    <div class="footer-rating">★★★★★ <span>Thousands of Five-Star Reviews from Pet Memorial Families</span>
                     </div>
                 </div>
 
