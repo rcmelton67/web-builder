@@ -34,8 +34,8 @@ body {
 
 .tribute-search-wrapper {
     position: absolute;
-    top: 20px;
-    /* Lowered from -15px to avoid header overlap */
+    top: 60px;
+    /* Lowered to ensure full visibility below header */
     right: 0;
     width: 280px;
     z-index: 10;
