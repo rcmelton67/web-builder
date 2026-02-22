@@ -3,12 +3,22 @@
    (Extracted from Root styles.css)
    ========================================== */
 
+/* GLOBAL RESET FOR CONSISTENCY */
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 /* HEADER */
 .site-header {
     background: linear-gradient(to right, #1a1a1a, #222);
     padding: 30px 0;
     position: relative;
-    z-index: 20;
+    z-index: 100;
+    /* Ensure it stays above content but below overlays if any */
+    width: 100%;
+    margin: 0;
 }
 
 .nav-container {

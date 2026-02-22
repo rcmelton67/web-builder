@@ -34,8 +34,8 @@ body {
 
 .tribute-search-wrapper {
     position: absolute;
-    top: -15px;
-    /* Adjusting for baseline of H1 in hero */
+    top: 20px;
+    /* Lowered from -15px to avoid header overlap */
     right: 0;
     width: 280px;
     z-index: 10;
