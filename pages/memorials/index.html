@@ -158,18 +158,21 @@
             const cards = document.querySelectorAll(".tribute-card");
 
             cards.forEach(card => {
+                const titleText = card.querySelector("h2")?.textContent || "";
+                const excerptText = card.querySelector(".excerpt")?.textContent || "";
+                const yearsText = card.querySelector(".years")?.textContent || "";
+                const attributionText = card.querySelector(".breed")?.textContent || "";
+
                 const searchableText = (
-                    card.dataset.name + " " +
-                    card.dataset.breed + " " +
-                    card.dataset.years + " " +
-                    card.dataset.content
+                    (card.dataset.name || "") + " " +
+                    (card.dataset.breed || "") + " " +
+                    (card.dataset.years || "") + " " +
+                    (card.dataset.content || "") + " " +
+                    titleText + " " + excerptText + " " + yearsText + " " + attributionText + " " +
+                    card.innerText
                 ).toLowerCase();
 
-                if (searchableText.includes(query)) {
-                    card.style.display = "";
-                } else {
-                    card.style.display = "none";
-                }
+                card.style.display = (query === "" || searchableText.indexOf(query) !== -1) ? "" : "none";
             });
         });
     </script>

@@ -200,21 +200,22 @@
         const cards = document.querySelectorAll(".mm-archive-card");
 
         cards.forEach(card => {
-          // Robust text extraction: check data attributes OR visible content
-          const titleText = card.querySelector(".mm-archive-title")?.textContent || "";
-          const excerptText = card.querySelector(".mm-archive-excerpt")?.textContent || "";
-          const yearsText = card.querySelector(".mm-archive-years")?.textContent || "";
-          const attributionText = card.querySelector(".mm-archive-attribution")?.textContent || "";
+          // Robust text extraction: check data attributes AND visible content
+          const titleText = card.querySelector(".mm-archive-title, h2")?.textContent || "";
+          const excerptText = card.querySelector(".mm-archive-excerpt, .excerpt, p")?.textContent || "";
+          const yearsText = card.querySelector(".mm-archive-years, .years")?.textContent || "";
+          const attributionText = card.querySelector(".mm-archive-attribution, .mm-archive-attribution-info")?.textContent || "";
 
           const searchableText = (
             (card.dataset.name || "") + " " +
             (card.dataset.breed || "") + " " +
             (card.dataset.years || "") + " " +
             (card.dataset.content || "") + " " +
-            titleText + " " + excerptText + " " + yearsText + " " + attributionText
+            titleText + " " + excerptText + " " + yearsText + " " + attributionText + " " +
+            card.innerText
           ).toLowerCase();
 
-          card.style.display = searchableText.includes(query) ? "" : "none";
+          card.style.display = (query === "" || searchableText.indexOf(query) !== -1) ? "" : "none";
         });
       });
 
