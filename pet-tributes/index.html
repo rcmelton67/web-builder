@@ -289,11 +289,18 @@
         const cards = document.querySelectorAll(".mm-archive-card");
 
         cards.forEach(card => {
+          // Robust text extraction: check data attributes OR visible content
+          const titleText = card.querySelector(".mm-archive-title")?.textContent || "";
+          const excerptText = card.querySelector(".mm-archive-excerpt")?.textContent || "";
+          const yearsText = card.querySelector(".mm-archive-years")?.textContent || "";
+          const attributionText = card.querySelector(".mm-archive-attribution")?.textContent || "";
+
           const searchableText = (
             (card.dataset.name || "") + " " +
             (card.dataset.breed || "") + " " +
             (card.dataset.years || "") + " " +
-            (card.dataset.content || "")
+            (card.dataset.content || "") + " " +
+            titleText + " " + excerptText + " " + yearsText + " " + attributionText
           ).toLowerCase();
 
           card.style.display = searchableText.includes(query) ? "" : "none";
