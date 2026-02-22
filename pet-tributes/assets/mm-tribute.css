@@ -1,313 +1,343 @@
-.mm-tribute-system {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 3rem;
-    font-family: inherit;
-    width: 100%;
-    background: #f6f4f1;
-    /* soft warm tone */
-    border-radius: 14px;
+/* ==========================================
+   WARM TEXTURED PAGE BACKGROUND
+   ========================================== */
+
+body {
+    background-color: #f0ebe6;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.12'/%3E%3C/svg%3E");
 }
 
-.mm-tribute-system .mm-tribute-grid {
-    width: 100%;
-}
+/* ==========================================
+   HERO CENTERING
+   ========================================== */
 
-.mm-tribute-hero {
+.memorials-hero {
     text-align: center;
-    margin-bottom: 2rem;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
 }
 
-.mm-tribute-hero h1 {
-    margin: 0 0 0.75rem;
-    font-size: 2.5rem;
+.hero-header-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
 }
 
-.mm-tribute-subtext {
-    font-size: 1.1rem;
+/* ==========================================
+   TRIBUTE SEARCH (RELOCATED TO TOP RIGHT)
+   ========================================== */
+
+.memorials-hub .container {
+    position: relative;
+}
+
+.tribute-search-wrapper {
+    position: absolute;
+    top: -15px;
+    /* Adjusting for baseline of H1 in hero */
+    right: 0;
+    width: 280px;
+    z-index: 10;
+}
+
+#tributeSearch {
+    width: 100%;
+    padding: 12px 40px 12px 18px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+#tributeSearch:focus {
+    outline: none;
+    border-color: #2e2a26;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.search-clear-btn {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+    display: none;
+    /* Hidden by default, shown via JS */
+    user-select: none;
+    transition: color 0.2s;
+}
+
+.search-clear-btn:hover {
+    color: #333;
+}
+
+/* Responsive adjustment for search */
+@media (max-width: 900px) {
+    .tribute-search-wrapper {
+        position: static;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 20px;
+    }
+
+    .hero-header-row {
+        margin-top: 20px;
+    }
+}
+
+.memorials-hero h1 {
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+}
+
+.memorials-hero p {
+    font-size: 1.05rem;
     color: #555;
-    margin-bottom: 0.5rem;
 }
 
-.mm-tribute-intro {
-    max-width: 750px;
-    margin: 0 auto 1.5rem;
-    color: #555;
-    font-size: 1rem;
-    text-align: center;
-}
+/* ==========================================
+   ARCHIVE GRID (NARROWER CARDS)
+   ========================================== */
 
-.mm-tribute-note {
-    font-size: 0.9rem;
-    color: #888;
-}
-
-.mm-tribute-grid {
+.tribute-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.75rem;
-    margin-top: 2.5rem;
+    grid-template-columns: repeat(3, minmax(260px, 320px));
+    justify-content: center;
+    gap: 40px;
+    margin-top: 3rem;
 }
+
+/* Responsive */
 
 @media (max-width: 1100px) {
-    .mm-tribute-grid {
+    .tribute-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 700px) {
-    .mm-tribute-grid {
+@media (max-width: 680px) {
+    .tribute-grid {
         grid-template-columns: 1fr;
     }
 }
 
-.mm-tribute-card {
-    background: #ffffff;
-    border-radius: 12px;
+/* ==========================================
+   ARCHIVE CARD
+   ========================================== */
+
+.mm-archive-card {
+    background: #faf8f5;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mm-archive-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Make entire card clickable cleanly */
+
+.mm-archive-link {
+    display: block;
     text-decoration: none;
     color: inherit;
-    display: block;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.mm-tribute-card * {
-    text-decoration: none !important;
+/* ==========================================
+   IMAGE
+   ========================================== */
+
+.mm-archive-thumb {
+    overflow: hidden;
 }
 
-.mm-tribute-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-}
-
-.mm-tribute-card:hover .mm-card-arrow {
-    transform: translateX(4px);
-    color: #555;
-}
-
-.mm-tribute-image img {
+.mm-archive-thumb img {
     width: 100%;
-    aspect-ratio: 4 / 4.5;
+    height: 340px;
     object-fit: cover;
-}
-
-.mm-tribute-content {
-    padding: 1rem;
-}
-
-.mm-tribute-content h2 {
-    margin: 0 0 0.25rem;
-    font-size: 1.25rem;
-}
-
-.mm-breed {
-    font-size: 0.9rem;
-    color: #777;
-}
-
-.mm-years {
-    font-size: 1.4rem;
-    color: #444;
-    font-weight: 600;
-    margin-bottom: 4rem;
-    margin-top: 1rem;
-}
-
-.mm-excerpt {
-    font-size: 0.95rem;
-    color: #444;
-}
-
-.mm-tribute-cta {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.mm-btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: #444;
-    /* Secondary action */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 6px;
-}
-
-.mm-submit-block {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.mm-submit-link {
-    text-decoration: underline;
-    color: #444;
-}
-
-.mm-submit-top {
-    margin-top: 1.75rem;
-}
-
-.mm-submit-btn {
-    display: inline-block;
-    padding: 0.8rem 1.75rem;
-    background: #1f1f1f;
-    /* Primary action */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: all 0.2s ease;
-}
-
-.mm-submit-btn:hover {
-    background: #000;
-}
-
-.mm-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 6px;
-}
-
-.mm-tribute-date {
-    font-size: 0.85rem;
-    color: #9a9a9a;
-    font-weight: 400;
-    white-space: nowrap;
-}
-
-.mm-card-arrow {
     display: block;
-    text-align: right;
-    margin-top: 12px;
-    font-size: 1.1rem;
-    color: #b0b0b0;
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition: transform 0.4s ease;
 }
 
-@media (max-width: 480px) {
-    .mm-card-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .mm-tribute-date {
-        margin-top: 4px;
-    }
+.mm-archive-card:hover .mm-archive-thumb img {
+    transform: scale(1.06);
 }
 
-/* Centered Memorial Layout */
-/* Centered Memorial Layout */
-.mm-tribute-wrapper {
-    max-width: 820px;
-    margin: 100px auto 80px;
-    padding: 0 30px;
-    text-align: center;
+/* ==========================================
+   CONTENT
+   ========================================== */
+
+.mm-archive-meta {
+    padding: 22px;
 }
 
-/* Memorial Framing Line */
-/* Memorial Framing Line */
-.mm-memorial-line {
-    font-size: 0.85rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #8f8a82;
-    margin-bottom: 18px;
+.mm-archive-title {
+    font-size: 1.3rem;
+    margin: 0 0 10px;
+    line-height: 1.2;
 }
 
-/* Pet Name */
-/* Pet Name – Hero */
-.mm-tribute-name {
-    font-size: 3rem;
+.mm-archive-excerpt {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 14px;
+    line-height: 1.5;
+}
+
+.mm-archive-years {
+    font-size: 0.95rem;
     font-weight: 600;
-    margin: 0 0 12px;
+    color: #444;
 }
 
-/* Subtitle */
-.mm-tribute-subtitle {
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    color: #6f6a63;
-    margin-bottom: 16px;
+/* ==========================================
+   HERO CTA
+   ========================================== */
+
+.mm-hero-cta {
+    margin-top: 22px;
 }
 
-/* Date */
-.mm-tribute-date {
-    font-size: 0.9rem;
-    color: #a3a09a;
-    margin-bottom: 20px;
+/* ==========================================
+   BUTTONS
+   ========================================== */
+
+.mm-btn-primary,
+.mm-btn-secondary {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.25s ease;
 }
 
-/* Divider refinement */
-.mm-tribute-divider {
-    width: 70px;
-    height: 1px;
-    background: #d9d5cf;
-    margin: 35px auto;
+/* Primary */
+
+.mm-btn-primary {
+    background: #2e2a26;
+    color: #ffffff;
 }
 
-/* Tribute Body */
-/* Tribute Body */
-.mm-tribute-message {
-    font-size: 1.15rem;
-    line-height: 1.8;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    color: #333;
+.mm-btn-primary:hover {
+    background: #000;
+    transform: translateY(-2px);
 }
 
-/* Subtle Page Background */
-/* Subtle Page Background */
-/* Subtle Page Background */
-body.mm-tribute-page {
-    background-color: #f0ebe6;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
-    background-attachment: fixed;
+/* Secondary */
+
+.mm-btn-secondary {
+    background: transparent;
+    border: 1px solid #2e2a26;
+    color: #2e2a26;
 }
 
-.mm-tribute-wrapper img {
-    margin: 30px auto 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 100%;
+.mm-btn-secondary:hover {
+    background: #2e2a26;
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
-.mm-tribute-share {
+/* ==========================================
+   BOTTOM CTA SECTION
+   ========================================== */
+
+.mm-bottom-cta {
+    text-align: center;
+    margin-top: 80px;
+    padding: 60px 20px;
+}
+
+.mm-bottom-cta h3 {
+    margin-bottom: 28px;
+    font-size: 1.5rem;
+}
+
+.mm-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   DATE BADGE (Upper Right Overlay)
+   ========================================== */
+
+.mm-archive-thumb {
+    position: relative;
+}
+
+.mm-date-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(4px);
+    font-size: 0.7rem;
+    padding: 6px 10px;
+    border-radius: 20px;
+    color: #555;
+    letter-spacing: 0.6px;
+    font-weight: 500;
+}
+
+/* ==========================================
+   CARD ATTRIBUTION (Lower Right)
+   ========================================== */
+
+.mm-archive-meta {
+    position: relative;
+}
+
+.mm-archive-attribution {
+    margin-top: 18px;
+    padding-top: 14px;
+    font-size: 0.8rem;
+    color: #8c8c8c;
+    text-align: right;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================
+   PAGINATION
+   ========================================== */
+
+.mm-pagination {
     margin-top: 60px;
     text-align: center;
 }
 
-.mm-share-label {
-    font-size: 0.9rem;
-    color: #8f8a82;
-    margin-bottom: 14px;
-}
-
-.mm-share-icons {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-}
-
-.mm-share-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #9a9a9a;
+.mm-pagination a {
+    display: inline-block;
+    margin: 0 6px;
+    padding: 8px 14px;
+    border-radius: 6px;
     text-decoration: none;
-    transition: color 0.2s ease, transform 0.2s ease;
+    font-size: 14px;
+    background: #f1f1f1;
+    color: #333;
+    transition: all .2s ease;
 }
 
-.mm-share-icon svg {
-    fill: currentColor;
-    width: 20px;
-    height: 20px;
+.mm-pagination a:hover {
+    background: #2c3e50;
+    color: #fff;
 }
 
-.mm-share-icon:hover {
-    color: #444;
-    transform: translateY(-1px);
+.mm-pagination .mm-page-active {
+    background: #2c3e50;
+    color: #fff;
 }

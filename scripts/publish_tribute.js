@@ -5,8 +5,10 @@ const path = require('path');
 const PENDING_DIR = path.join(__dirname, '../data/pending-tributes');
 const PUBLISHED_JSON_DIR = path.join(__dirname, '../data/published-tributes');
 const PAGES_DIR = path.join(__dirname, '../pages/memorials');
+const ARCHIVE_DIR = path.join(__dirname, '../pet-tributes');
 const TEMPLATE_PATH = path.join(__dirname, '../templates/tribute-template.html');
 const INDEX_PATH = path.join(PAGES_DIR, 'index.html');
+const ARCHIVE_INDEX_PATH = path.join(ARCHIVE_DIR, 'index.html');
 
 // Helper to create slug from text
 function createSlug(text) {
@@ -75,6 +77,8 @@ async function publishTributes() {
             const breed = data.breed || '';
             const yearsTogether = data.yearsTogether || '';
             const tributeStory = data.tributeStory || '';
+            const firstName = data.firstName || data.ownerName || '';
+            const state = data.state || '';
 
             // Handle Photo URL - Clean "File: " prefix if present
             let petPhotoUrl = data.petPhoto || '';
@@ -129,19 +133,52 @@ async function publishTributes() {
             fs.writeFileSync(tributePagePath, html);
             console.log(`- Created page: ${tributePagePath}`);
 
-            // Generate Card HTML for Index
+            // Generate dynamic date badge
+            const now = new Date();
+            const publishLabel = now.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+            // Generate dynamic attribution
+            let attributionHtml = '';
+            if (firstName || state) {
+                attributionHtml = '<div class="mm-archive-attribution">';
+                if (firstName) {
+                    attributionHtml += escapeHtml(firstName);
+                    if (state) {
+                        attributionHtml += `, ${escapeHtml(state)}`;
+                    }
+                } else {
+                    attributionHtml += escapeHtml(state);
+                }
+                attributionHtml += '</div>';
+            }
+
+            // Generate Card HTML for Archive
+            const excerpt = escapeHtml(tributeStory.substring(0, 120));
             const cardHtml = `
-            <div class="tribute-card">
-                <a href="${slug}/index.html" class="tribute-link">
-                    <div class="tribute-card-image">
-                        <img src="images/${petPhotoUrl}" alt="${escapeHtml(petName)}" loading="lazy">
-                    </div>
-                    <div class="tribute-card-content">
-                        <h3>${escapeHtml(petName)}</h3>
-                        <div class="tribute-meta">${escapeHtml(petType)} ${breed ? '• ' + escapeHtml(breed) : ''}</div>
-                    </div>
-                </a>
-            </div>`;
+<article
+  class="mm-archive-card"
+  data-name="${escapeHtml(petName)}"
+  data-breed="${escapeHtml(breed)}"
+  data-years="${escapeHtml(yearsTogether)}"
+  data-content="${escapeHtml(tributeStory.substring(0, 100))}"
+>
+  <a class="mm-archive-link" href="${slug}/">
+    <div class="mm-archive-thumb">
+      <span class="mm-date-badge">${publishLabel}</span>
+      <img
+        src="${slug}/${slug}.webp"
+        alt="${escapeHtml(petName)} memorial tribute"
+        loading="lazy"
+      >
+    </div>
+    <div class="mm-archive-meta">
+      <h2 class="mm-archive-title">${escapeHtml(petName)} \u2013 ${escapeHtml(breed)}</h2>
+      <p class="mm-archive-excerpt">${excerpt}...</p>
+      <p class="mm-archive-years">${escapeHtml(yearsTogether)}</p>
+      ${attributionHtml}
+    </div>
+  </a>
+</article>`;
 
             newCardsHtml += cardHtml + '\n';
 
@@ -155,28 +192,23 @@ async function publishTributes() {
         }
     }
 
-    // 3. Update Index Page
+    // 3. Update Archive Index Page
     if (newCardsHtml) {
-        // Find the tribute-grid div
-        const gridMarker = '<div class="tribute-grid"';
-        const gridStartIndex = indexHtml.indexOf(gridMarker);
+        // Update pet-tributes/index.html using injection marker
+        let archiveHtml = fs.readFileSync(ARCHIVE_INDEX_PATH, 'utf8');
+        const archiveMarker = '<!-- MM:ARCHIVE_CARDS_START -->';
+        const archiveMarkerIndex = archiveHtml.indexOf(archiveMarker);
 
-        if (gridStartIndex !== -1) {
-            // Find the closing > of the opening tag
-            const openTagEnd = indexHtml.indexOf('>', gridStartIndex);
-            if (openTagEnd !== -1) {
-                // Insert new cards immediately after opening tag
-                const prefix = indexHtml.substring(0, openTagEnd + 1);
-                const suffix = indexHtml.substring(openTagEnd + 1);
-                indexHtml = prefix + '\n' + newCardsHtml + suffix;
+        if (archiveMarkerIndex !== -1) {
+            const insertPoint = archiveMarkerIndex + archiveMarker.length;
+            const prefix = archiveHtml.substring(0, insertPoint);
+            const suffix = archiveHtml.substring(insertPoint);
+            archiveHtml = prefix + '\n\n' + newCardsHtml + '\n' + suffix;
 
-                fs.writeFileSync(INDEX_PATH, indexHtml);
-                console.log('Updated pages/memorials/index.html with new tributes.');
-            } else {
-                console.error('Could not find end of tribute-grid opening tag.');
-            }
+            fs.writeFileSync(ARCHIVE_INDEX_PATH, archiveHtml);
+            console.log('Updated pet-tributes/index.html with new tributes.');
         } else {
-            console.error('Could not find .tribute-grid div in index.html');
+            console.error('Could not find MM:ARCHIVE_CARDS_START marker in pet-tributes/index.html');
         }
     }
 
