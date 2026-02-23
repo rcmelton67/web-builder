@@ -202,15 +202,22 @@
 
 /* ─── Mobile Adjustments ───────────────── */
 @media (max-width: 768px) {
+  .memorials-hub {
+    padding-top: 80px;
+    /* More space from header */
+  }
+
   .hero-header-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.5rem;
+    /* More space between title and search */
   }
 
   .tribute-search-wrapper {
-    max-width: 100%;
+    max-width: 320px;
     width: 100%;
+    margin: 10px auto 30px auto;
   }
 }
 

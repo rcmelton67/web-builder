@@ -13,6 +13,8 @@ def load_template(filename):
 
 HEADER_TEMPLATE = load_template("master_header.html")
 FOOTER_TEMPLATE = load_template("master_footer.html")
+TRIBUTE_HEADER_TEMPLATE = load_template("tribute_header.html")
+TRIBUTE_FOOTER_TEMPLATE = load_template("tribute_footer.html")
 
 
 def get_relative_prefix(file_path):
@@ -31,6 +33,8 @@ def get_relative_prefix(file_path):
     
     return "../" * depth
 
+PET_TRIBUTES_DIR = os.path.join(PROJECT_ROOT, "pet-tributes")
+
 def update_file(file_path):
     print(f"Processing {file_path}...")
     
@@ -39,94 +43,62 @@ def update_file(file_path):
     
     prefix = get_relative_prefix(file_path)
     
+    # Determine which template to use
+    is_tribute = "pet-tributes" in file_path
+    header_tmpl = TRIBUTE_HEADER_TEMPLATE if is_tribute else HEADER_TEMPLATE
+    footer_tmpl = TRIBUTE_FOOTER_TEMPLATE if is_tribute else FOOTER_TEMPLATE
+
     # 1. Update Header
-    # Capture existing classes
-    # 1. Update Header
-    # Capture existing classes
-    # Use DOTALL to handle newlines in attributes
-    header_regex = re.compile(r'<header class="([^"]*?)".*?>[\s\S]*?</header>', re.IGNORECASE | re.DOTALL)
+    header_regex = re.compile(r'(<header[^>]*>)[\s\S]*?</header>', re.IGNORECASE | re.DOTALL)
     match = header_regex.search(content)
     
     if match:
-        existing_classes = match.group(1)
-        # Create new header
-        new_header = HEADER_TEMPLATE.replace("{{PREFIX}}", prefix).replace("{{HEADER_CLASSES}}", existing_classes).strip()
-        
-        # We need to replace the WHOLE header tag, including attributes if we want to be clean, 
-        # BUT the regex captured generic attributes in .*? so we might lose style="..." if distinct from class.
-        # Let's be more precise: Capture entire opening tag attributes.
-        
-        precise_header_regex = re.compile(r'(<header[^>]*>)[\s\S]*?</header>', re.IGNORECASE | re.DOTALL)
-        precise_match = precise_header_regex.search(content)
-        
-        if precise_match:
-            opening_tag = precise_match.group(1)
-            # We want to keep the opening tag AS IS, just replace the inner content.
-            # BUT my HTML template has the opening tag in it.
-            # So I should extract the INNER content of my template.
-            
-            template_inner_match = re.search(r'<header.*?>([\s\S]*?)</header>', HEADER_TEMPLATE.replace("{{PREFIX}}", prefix))
-            if template_inner_match:
-                new_inner_html = template_inner_match.group(1).strip()
-                
-                # Use string slicing based on precise_match indices to guarantee replacement
-                start_idx = precise_match.start()
-                end_idx = precise_match.end()
-                
-                # precise_match.group(1) is the opening tag <header class="...">
-                # We want to replace everything from start to end with:
-                # opening_tag + new_inner_html + </header>
-                
-                new_block = f"{opening_tag}\n{new_inner_html}\n</header>"
-                
-                # Reconstruct content
-                content = content[:start_idx] + new_block + content[end_idx:]
+        opening_tag = match.group(1)
+        template_inner_match = re.search(r'<header.*?>([\s\S]*?)</header>', header_tmpl.replace("{{PREFIX}}", prefix))
+        if template_inner_match:
+            new_inner_html = template_inner_match.group(1).strip()
+            new_block = f"{opening_tag}\n{new_inner_html}\n</header>"
+            content = content[:match.start()] + new_block + content[match.end():]
     
     # 2. Update Footer
-    prefix = get_relative_prefix(file_path)
+    footer_regex = re.compile(r'(<footer[^>]*>)([\s\S]*?)(</footer>)', re.IGNORECASE | re.DOTALL)
+    footer_match = footer_regex.search(content)
     
-    precise_footer_regex = re.compile(r'(<footer[^>]*>)([\s\S]*?)(</footer>)', re.IGNORECASE)
-    footer_match = precise_footer_regex.search(content)
-    
-    template_inner_match_footer = re.search(r'<footer.*?>([\s\S]*?)</footer>', FOOTER_TEMPLATE.replace("{{PREFIX}}", prefix))
+    template_inner_match_footer = re.search(r'<footer.*?>([\s\S]*?)</footer>', footer_tmpl.replace("{{PREFIX}}", prefix))
     
     if footer_match and template_inner_match_footer:
         new_inner_footer = template_inner_match_footer.group(1).strip()
-        
-        start_idx = footer_match.start()
-        end_idx = footer_match.end()
-        
-        # footer_match.group(1) is opening tag
         opening_tag = footer_match.group(1)
-        
         new_block = f"{opening_tag}\n{new_inner_footer}\n</footer>"
-        content = content[:start_idx] + new_block + content[end_idx:]
+        content = content[:footer_match.start()] + new_block + content[footer_match.end():]
 
     # 3. Remove Obsolete .page-band-dark
-    # This element conflicts with the new .site-header styling
     content = re.sub(r'<!--\s*DARK BAND\s*-->\s*<div class="page-band-dark"></div>', '', content, flags=re.IGNORECASE)
     content = re.sub(r'<div class="page-band-dark"></div>', '', content, flags=re.IGNORECASE)
 
-    # 4. Force CSS Cache Busting
-    # Replace style.css with style.css?v=hardreset2 ensures browsers fetch fresh copy
-    content = re.sub(r'href="([^"]*?)styles\.css(?:\?v=[^"]*)?"', r'href="\1styles.css?v=hardreset2"', content)
-
-
+    # 4. Force CSS Cache Busting & Standardize Stylesheets
+    # Replace style.css OR header-footer.css with global styles.css?v=hardreset3
+    content = re.sub(
+        r'href="([^"]*?)(?:styles|header-footer)\.css(?:\?v=[^"]*)?"', 
+        f'href="{prefix}assets/css/styles.css?v=hardreset3"', 
+        content
+    )
 
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(content)
 
 def main():
+    # Process pages directory
     for root, dirs, files in os.walk(PAGES_DIR):
         for file in files:
             if file == "index.html":
                 update_file(os.path.join(root, file))
                 
-    # Also template
-    template_path = os.path.join(PROJECT_ROOT, "templates", "tribute-template.html")
-    if os.path.exists(template_path):
-        # Template is special case, handled manually or left static for now as it's a template
-        pass
+    # Process pet-tributes directory
+    for root, dirs, files in os.walk(PET_TRIBUTES_DIR):
+        for file in files:
+            if file == "index.html":
+                update_file(os.path.join(root, file))
 
 if __name__ == "__main__":
     main()

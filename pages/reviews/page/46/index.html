@@ -6,7 +6,7 @@
     <title>Pet Memorial Stone Reviews – Page 46 | Melton Memorials</title>
     <meta name="description" content="Read real customer reviews of our handcrafted granite pet memorial stones. Page 46.">
     <link rel="canonical" href="https://meltonmemorials.com/reviews/page/46/">
-    <link rel="stylesheet" href="../../../../assets/css/styles.css?v=hardreset2">
+    <link rel="stylesheet" href="../../../../assets/css/styles.css?v=hardreset3">
     <link rel="stylesheet" href="../../../../assets/css/memorial-theme.css">
     <script src="../../../../assets/js/reviews-data.js?v=2"></script>
 </head>
@@ -26,6 +26,12 @@
                 </a>
             </div>
         </div>
+
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
 
         <nav class="main-nav">
             <ul class="nav-list">
@@ -101,7 +107,8 @@
                     Each memorial stone is deeply engraved with care in Alma, Arkansas —
                     creating a permanent tribute for dogs, cats, and beloved companions.
                 </p>
-                <div class="footer-rating">★★★★★ <span>Thousands of Five-Star Reviews from Pet Memorial Families</span></div>
+                <div class="footer-rating">★★★★★ <span>Thousands of Five-Star Reviews from Pet Memorial Families</span>
+                </div>
             </div>
 
             <div class="footer-column">
@@ -149,14 +156,27 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const mobileToggle = document.querySelector('.mobile-nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            if (mobileToggle && mainNav) {
+                mobileToggle.addEventListener('click', function () {
+                    mainNav.classList.toggle('mobile-active');
+                    mobileToggle.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+
             document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
                 toggle.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation(); // Prevent immediate closing
+                    if (window.innerWidth <= 768 || e.target.closest('.dropdown')) {
+                        e.preventDefault();
+                        e.stopPropagation();
 
-                    const menu = this.nextElementSibling;
-                    if (menu) {
-                        menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+                        const menu = this.nextElementSibling;
+                        if (menu) {
+                            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+                        }
                     }
                 });
             });
@@ -166,6 +186,14 @@
                     document.querySelectorAll('.dropdown-menu').forEach(m => {
                         m.style.display = 'none';
                     });
+                }
+
+                // Close mobile menu when clicking outside
+                if (mainNav && mainNav.classList.contains('mobile-active') &&
+                    !e.target.closest('.main-nav') && !e.target.closest('.mobile-nav-toggle')) {
+                    mainNav.classList.remove('mobile-active');
+                    mobileToggle.classList.remove('active');
+                    document.body.classList.toggle('menu-open');
                 }
             });
         });
